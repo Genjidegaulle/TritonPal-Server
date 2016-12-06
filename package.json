@@ -1,0 +1,17 @@
+{
+  "author": "Alex",
+  "name": "ucsdext",
+  "description": "please go",
+  "version": "0.0.0",
+  "repository": {
+    "url": ""
+  },
+
+  "scripts" : { "start":"node index.js"},
+  "dependencies": {},
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
+  }
+}
