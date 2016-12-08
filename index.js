@@ -22,7 +22,7 @@ app.get('/', function(request, response) {
 
 app.get('/courses/', function(req, res) {
 	
-	redis.incCourse().
+	redis.incCourse();
 	var subjCode = req.query.subj_code;	
 	var courseCode = req.query.course_code;
 
