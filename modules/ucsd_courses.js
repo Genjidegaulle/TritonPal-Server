@@ -1,7 +1,7 @@
 "use strict";
 
-var cheerio = require('cheerio');
-var request = require('request');
+//var cheerio = require('cheerio');
+//var request = require('request');
 var htmlFile = require('./getHtml.js');
 /*
 {
@@ -15,26 +15,23 @@ var htmlFile = require('./getHtml.js');
 */
 function parseCourse(courseStr){
 	var retObj = {};
+	
+	courseStr = courseStr.replace(/ /g, '').toUpperCase();
 
-  if(courseStr.indexOf(' ') > 0) {
-	  retObj.subj_code = courseStr.split(' ')[0].toUpperCase();
-	  retObj.course_code = courseStr.split(' ')[1].toUpperCase();
-	  retObj.html_id = retObj.subj_code.toLowerCase() + retObj.course_code.toLowerCase();
-	  return retObj;
-  }
-  else {
-    
-    for(var i = 0; i < courseStr.length; i++) {
-      if(Number.isInteger(courseStr[i])) {
-        retObj.subj_code = courseStr.substring(0, i);
-        retObj.course_code = courseStr.substring(i, courseStr.length);
-	      retObj.html_id = retObj.subj_code.toLowerCase() + retObj.course_code.toLowerCase();
-        return retObj;
-      }
-    }
+  console.log(courseStr);
+	console.log('sssssss');
+  for(var i = 0; i < courseStr.length; i++) {
+		
+		console
+		if(/[0-9]/g.test(courseStr.charAt(i))) {
+			retObj.subj_code = courseStr.substring(0, i);
+			retObj.course_code = courseStr.substring(i, courseStr.length);
+			retObj.html_id = retObj.subj_code.toLowerCase() + retObj.course_code.toLowerCase();
+			return retObj;
+		}
+	}
 
     throw "GAAAHHHI HATE ERRORS";
-  }
 
 }
 
@@ -89,6 +86,12 @@ function getHtmlFile(subjCode) {
 
 
 function getCourseData( courseString, callback) { 
+
+	if(typeof courseString === 'undefined' || courseString === null ||
+		courseString.length <1) {
+		callback(true);
+		return;
+	}
 	
 	var courseObj = parseCourse(courseString);
 	var courseData = {};
@@ -105,12 +108,10 @@ function getCourseData( courseString, callback) {
 
 		var $ = cheerio.load(body);
 
-		console.log(courseObj);
-
 
 		if($('#' + courseObj.html_id).attr('name') !== courseObj.html_id){	
-			console.log('some errors');
-      throw "GAAHHHH";
+			callback({err:{message:"gahlly"}});
+			return;
 		}
 
 		var htmlTitle = $('#' + courseObj.html_id).next().text();
@@ -134,4 +135,5 @@ function getCourseData( courseString, callback) {
 module.exports = {
 	
 	getCourseData : getCourseData,
+	parseCourse: parseCourse,
 }
