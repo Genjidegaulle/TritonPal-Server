@@ -23,12 +23,15 @@ app.get('/', function(request, response) {
 app.get('/courses/', function(req, res) {
 	
 	redis.incCourse();
+
+	
 	var subjCode = req.query.subj_code;	
 	var courseCode = req.query.course_code;
 	var classCode = req.query.class_code;
 
 	
 	if(classCode && classCode.length > 0) {
+		console.log('doing classCode');
 		ucsd_courses.getCourseData(classCode, function(err, courseObj) {
 			if(err) {
 				console.log(err);
@@ -49,15 +52,18 @@ app.get('/courses/', function(req, res) {
 		return;
 	}
 
-  ucsd_courses.getCourseData(subjCode+' '+courseCode, function(err, courseObj) {
-    if(err) {
-      console.log(err);
-    }
-		else {
-			res.send(JSON.stringify(courseObj,null,'\t'));
-		}
+  else {
+		
+		ucsd_courses.getCourseData(subjCode+' '+courseCode, function(err, courseObj) {
+			if(err) {
+				console.log(err);
+			}
+			else {
+				res.send(JSON.stringify(courseObj,null,'\t'));
+			}
 
-	});
+		});
+	}
   
 
 });
