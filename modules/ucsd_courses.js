@@ -72,7 +72,7 @@ function getDescription(htmlBody){
 
 function getPreReqs(htmlBody){
 
-	if(htmlBody.includes('Prerequisites:') {
+	if(htmlBody.includes('Prerequisites:')) {
 
 		var begIndex = htmlBody.search(/Prerequisites:/) + 'Prerequisites:'.length +1;
 		var lastIndex = htmlBody.length;
