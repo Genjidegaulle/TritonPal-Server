@@ -28,6 +28,8 @@ app.get('/courses/', function(req, res) {
 		else {
 			res.send(JSON.stringify(courseObj,null,'\t'));
 		}
+
+	});
   
 
 });
