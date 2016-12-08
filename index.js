@@ -4,7 +4,7 @@ var ucsd_courses = require('./modules/ucsd_courses.js');
 
 var app = express();
 
-app.set('port', (process.env.PORT || 5000));
+app.set('port', (process.env.PORT || 80));
 
 app.use(express.static(__dirname + '/public'));
 
@@ -20,6 +20,9 @@ app.get('/courses/', function(req, res) {
 	
 	var subjCode = req.query.subj_code;	
 	var courseCode = req.query.course_code;
+
+	console.log(subjCode);
+	console.log(courseCode);
 	
 	if(typeof subjCode === 'undefined' || subjCode === null ||
 		typeof courseCode === 'undefined' || courseCode === null) {
