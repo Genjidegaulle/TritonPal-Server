@@ -14,10 +14,27 @@ var request = require('request');
 */
 function parseCourse(courseStr){
 	var retObj = {};
-	retObj.dep = courseStr.split(' ')[0].toUpperCase();
-	retObj.course_num = courseStr.split(' ')[1].toUpperCase();
-	retObj.html_id = retObj.dep.toLowerCase() + retObj.course_num.toLowerCase();
-	return retObj;
+
+  if(courseStr.indexOf(' ') > 0) {
+	  retObj.subj_code = courseStr.split(' ')[0].toUpperCase();
+	  retObj.course_code = courseStr.split(' ')[1].toUpperCase();
+	  retObj.html_id = retObj.subj_code.toLowerCase() + retObj.course_code.toLowerCase();
+	  return retObj;
+  }
+  else {
+    
+    for(var i = 0; i < courseStr.length; i++) {
+      if(Number.isInteger(courseStr[i])) {
+        retObj.subj_code = courseStr.substring(0, i);
+        retObj.course_code = courseStr.substring(i, courseStr.length);
+	      retObj.html_id = retObj.subj_code.toLowerCase() + retObj.course_code.toLowerCase();
+        return retObj;
+      }
+    }
+
+    throw "GAAAHHHI HATE ERRORS";
+  }
+
 }
 
 function getCourseName(htmlTitle){
@@ -31,7 +48,7 @@ function getCourseName(htmlTitle){
 	return htmlTitle.substring(begIndex, lastIndex);
 }
 
-function getCourseCode(htmlTitle){
+function getClassCode(htmlTitle){
 	var begIndex = 0;
 	var lastIndex = htmlTitle.search(/\./);
 
@@ -64,7 +81,7 @@ function getCourseData( courseString, callback) {
 	var courseObj = parseCourse(courseString);
 	var courseData = {};
 
-	request('http://ucsd.edu/catalog/courses/' + courseObj.dep + '.html', function(err, resp, body){
+	request('http://ucsd.edu/catalog/courses/' + courseObj.subj_code + '.html', function(err, resp, body){
 		if(err){
 			console.log('request error');
 			console.log(err);
@@ -79,13 +96,14 @@ function getCourseData( courseString, callback) {
 
 		if($('#' + courseObj.html_id).attr('name') !== courseObj.html_id){	
 			console.log('some errors');
+      throw "GAAHHHH";
 		}
 
 		var htmlTitle = $('#' + courseObj.html_id).next().text();
 		var htmlBody = $('#' + courseObj.html_id).next().next().text();
 
 		courseData.course_name = getCourseName(htmlTitle);
-		courseData.course_code = getCourseCode(htmlTitle);
+		courseData.class_code = getClassCode(htmlTitle);
 		courseData.num_units = getNumUnits(htmlTitle);
 
 		courseData.description = getDescription(htmlBody);
