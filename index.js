@@ -21,6 +21,15 @@ app.get('/courses/', function(req, res) {
 	var subjCode = req.query.subj_code;	
 	var courseCode = req.query.course_code;
 	
+	if(typeof subjCode === 'undefined' || subjCode === null ||
+		typeof courseCode === 'undefined' || subjCode === null) {
+		
+		console.log('ruh roh');
+		res.send(JSON.stringify( 
+			{err: {message: 'subj_code and course_code both must be defined for this api'}}));
+		return;
+	}
+
   ucsd_courses.getCourseData(subjCode+' '+courseCode, function(err, courseObj) {
     if(err) {
       console.log(err);
