@@ -1,4 +1,4 @@
-
+"use strict";
 var express = require('express');
 var ucsd_courses = require('./modules/ucsd_courses.js');
 
@@ -21,7 +21,7 @@ app.get('/courses/', function(req, res) {
 	var subjCode = req.query.subj_code;	
 	var courseCode = req.query.course_code;
 	
-  ucsd_courses.getCourseData(subCode+' '+courseCode, function(err, courseObj) {
+  ucsd_courses.getCourseData(subjCode+' '+courseCode, function(err, courseObj) {
     if(err) {
       console.log(err);
     }
