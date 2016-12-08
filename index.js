@@ -40,7 +40,7 @@ app.get('/courses/', function(req, res) {
 		});
 	}
 
-	if(typeof subjCode === 'undefined' || subjCode === null || subjCode.length < 1||
+	else if(typeof subjCode === 'undefined' || subjCode === null || subjCode.length < 1||
 		typeof courseCode === 'undefined' || courseCode === null || courseCode.length < 1) {
 		
 		console.log('ruh roh');
