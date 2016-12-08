@@ -71,10 +71,16 @@ function getDescription(htmlBody){
 }
 
 function getPreReqs(htmlBody){
-	var begIndex = htmlBody.search(/Prerequisites:/) + 'Prerequisites:'.length +1;
-	var lastIndex = htmlBody.length;
 
-	return htmlBody.substring(begIndex, lastIndex);
+	if(htmlBody.includes('Prerequisites:') {
+
+		var begIndex = htmlBody.search(/Prerequisites:/) + 'Prerequisites:'.length +1;
+		var lastIndex = htmlBody.length;
+		return htmlBody.substring(begIndex, lastIndex);
+	}
+	else {
+		return '';
+	}
 }
 
 function getHtmlFile(subjCode) {
