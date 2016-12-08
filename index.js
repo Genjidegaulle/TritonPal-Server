@@ -1,8 +1,12 @@
 "use strict";
 var express = require('express');
 var ucsd_courses = require('./modules/ucsd_courses.js');
+var redis = require('./modules/redis.js');
 
 var app = express();
+
+
+
 
 app.set('port', (process.env.PORT || 80));
 
@@ -18,6 +22,7 @@ app.get('/', function(request, response) {
 
 app.get('/courses/', function(req, res) {
 	
+	redis.incCourse().
 	var subjCode = req.query.subj_code;	
 	var courseCode = req.query.course_code;
 
