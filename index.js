@@ -22,7 +22,7 @@ app.get('/courses/', function(req, res) {
 	var courseCode = req.query.course_code;
 	
 	if(typeof subjCode === 'undefined' || subjCode === null ||
-		typeof courseCode === 'undefined' || subjCode === null) {
+		typeof courseCode === 'undefined' || courseCode === null) {
 		
 		console.log('ruh roh');
 		res.send(JSON.stringify( 
