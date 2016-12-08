@@ -25,10 +25,20 @@ app.get('/courses/', function(req, res) {
 	redis.incCourse();
 	var subjCode = req.query.subj_code;	
 	var courseCode = req.query.course_code;
+	var classCode = req.query.class_code;
 
-	console.log(subjCode);
-	console.log(courseCode);
 	
+	if(classCode && classCode.length > 0) {
+		ucsd_courses.getCourseData(classCode, function(err, courseObj) {
+    if(err) {
+      console.log(err);
+    }
+		else {
+			res.send(JSON.stringify(courseObj,null,'\t'));
+		}
+
+	});
+
 	if(typeof subjCode === 'undefined' || subjCode === null || subjCode.length < 1||
 		typeof courseCode === 'undefined' || courseCode === null || courseCode.length < 1) {
 		
