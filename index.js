@@ -30,14 +30,15 @@ app.get('/courses/', function(req, res) {
 	
 	if(classCode && classCode.length > 0) {
 		ucsd_courses.getCourseData(classCode, function(err, courseObj) {
-    if(err) {
-      console.log(err);
-    }
-		else {
-			res.send(JSON.stringify(courseObj,null,'\t'));
-		}
+			if(err) {
+				console.log(err);
+			}
+			else {
+				res.send(JSON.stringify(courseObj,null,'\t'));
+			}
 
-	});
+		});
+	}
 
 	if(typeof subjCode === 'undefined' || subjCode === null || subjCode.length < 1||
 		typeof courseCode === 'undefined' || courseCode === null || courseCode.length < 1) {
