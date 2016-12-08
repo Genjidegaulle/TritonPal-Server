@@ -2,6 +2,7 @@
 
 var cheerio = require('cheerio');
 var request = require('request');
+var htmlFile = require('./getHtml.js');
 /*
 {
 	course_name : "Introduction to Analog Design",
@@ -76,12 +77,19 @@ function getPreReqs(htmlBody){
 	return htmlBody.substring(begIndex, lastIndex);
 }
 
+function getHtmlFile(subjCode) {
+	return htmlFile.getHtmlFile(subjCode);
+}
+
+
 function getCourseData( courseString, callback) { 
 	
 	var courseObj = parseCourse(courseString);
 	var courseData = {};
+	
+	var htmlFile = getHtmlFile(courseObj.subj_code);
 
-	request('http://ucsd.edu/catalog/courses/' + courseObj.subj_code + '.html', function(err, resp, body){
+	request('http://ucsd.edu/catalog/courses/' + htmlFile,  function(err, resp, body){
 		if(err){
 			console.log('request error');
 			console.log(err);
