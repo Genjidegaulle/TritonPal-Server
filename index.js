@@ -32,7 +32,10 @@ app.get('/courses/', function(req, res) {
 	
 	if(classCode && classCode.length > 0) {
 		console.log('doing classCode');
+		console.log('classCode before: ' + classCode);
 		classCode = classCode.replace(/[^a-zA-Z0-9]/, '');
+
+		console.log('classCode after: ' + classCode);
 		console.log(classCode);
 		ucsd_courses.getCourseData(classCode, function(err, courseObj) {
 			if(err) {
