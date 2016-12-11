@@ -174,6 +174,8 @@ function getHtmlFile(subjCode) {
 			htmlFile = 'MAE'; 
 			break;
 		case('MATH'): 
+			htmlFile = 'MATH';
+			break;
 		case('MATS'): 
 			htmlFile = 'MATS'; 
 			break;
