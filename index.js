@@ -35,6 +35,7 @@ app.get('/courses/', function(req, res) {
 		ucsd_courses.getCourseData(classCode, function(err, courseObj) {
 			if(err) {
 				console.log(err);
+				res.send(JSON.stringify(err));
 			}
 			else {
 				res.send(JSON.stringify(courseObj,null,'\t'));
