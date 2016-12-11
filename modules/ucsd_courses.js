@@ -107,6 +107,7 @@ function getCourseData( courseString, callback) {
 		}
 
 		console.log(courseObj);
+		console.log(htmlFile);
 
 		var $ = cheerio.load(body);
 
