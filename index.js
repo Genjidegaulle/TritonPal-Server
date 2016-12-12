@@ -22,7 +22,7 @@ app.get('/', function(request, response) {
 
 
 app.get('/pretty/', function(req, res) {
-	res.sendFile('./test.css');
+	res.sendFile(__dirname + '/test.css');
 });
 app.get('/courses/', function(req, res) {
 	
