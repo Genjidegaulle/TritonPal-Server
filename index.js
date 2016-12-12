@@ -20,6 +20,10 @@ app.get('/', function(request, response) {
 	response.send('aayyy');
 });
 
+
+app.get('/pretty/', function(req, res) {
+	res.sendFile('test.css');
+});
 app.get('/courses/', function(req, res) {
 	
 	redis.incCourse();
