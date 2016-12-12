@@ -61,6 +61,7 @@ function getNumUnits(htmlTitle){
 }
 
 function getDescription(htmlBody){
+	console.log('|' + htmlBody + '|');
 	var begIndex = 0;
 	var lastIndex = htmlBody.search(/Prerequisites:/) || htmlBody.length;
 
