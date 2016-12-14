@@ -1,7 +1,4 @@
 
-
-
-
 var client = require('redis').createClient(process.env.REDIS_URL);
 
 client.on('error', function(err) {
@@ -9,24 +6,10 @@ client.on('error', function(err) {
 });
 
 
-function setCourseCount() {
-	client.set('course_count', 0, function(err, reply) {
-		if(err) {
-			console.log(err);
-		}
-		else {
-			console.log(reply);
-			console.log('course count at 0');
-		}
-	});
 
-}
+function incCourse(course, callback) {
 
-function incCourse() {
-	client.incr('course_count', function(err, reply) {
-		console.log(reply);
-		console.log('course count incremented');
-	});
+	client.hincrby('course_count', course, callback);
 }
 
 setCourseCount();

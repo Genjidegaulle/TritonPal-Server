@@ -26,7 +26,6 @@ app.get('/pretty/test.css', function(req, res) {
 });
 app.get('/courses/', function(req, res) {
 	
-	redis.incCourse();
 
 	
 	var subjCode = req.query.subj_code;	
@@ -41,6 +40,7 @@ app.get('/courses/', function(req, res) {
 
 		console.log('classCode after: ' + classCode);
 		console.log(classCode);
+		redis.incCourse(classCode);
 		ucsd_courses.getCourseData(classCode, function(err, courseObj) {
 			if(err) {
 				console.log(err);
