@@ -9,7 +9,7 @@ client.on('error', function(err) {
 
 function incCourse(course, callback) {
 
-	client.hincrby('course_count', course, callback);
+	client.hincrby('course_count', course, 1, callback);
 }
 
 
