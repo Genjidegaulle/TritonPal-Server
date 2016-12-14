@@ -12,7 +12,6 @@ function incCourse(course, callback) {
 	client.hincrby('course_count', course, callback);
 }
 
-setCourseCount();
 
 module.exports = {
 	incCourse: incCourse,
