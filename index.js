@@ -21,10 +21,10 @@ app.get('/', function(request, response) {
 });
 
 
-app.get('apps/pretty/test.css', function(req, res) {
+app.get('/apps/pretty/test.css', function(req, res) {
 	res.sendFile(__dirname + '/test.css');
 });
-app.get('apps/courses/', function(req, res) {
+app.get('/apps/courses', function(req, res) {
 	
 
 	
