@@ -1,0 +1,20 @@
+<html>
+
+<body>
+
+This is a test.
+
+This should show something:
+
+<br>
+
+<ul>
+{{#courses}}
+<li>* {{.}}</li>
+{{/courses}}
+</ul>
+
+</body>
+
+</html>
+

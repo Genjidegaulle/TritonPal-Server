@@ -43,7 +43,7 @@ app.get('/apps/calendar/landing.html', function(req, res) {
 	var courseIds = req.query.courses.split('.');
 	
 	//res.send('ayyy still working on this mate');
-	res.render('test.html', {courses:courseIds});
+	res.render('test.html', {'courses':coursesIds});
 });
 
 
