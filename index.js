@@ -12,18 +12,41 @@ app.set('port', (process.env.PORT || 80));
 
 app.use(express.static(__dirname + '/public'));
 
-// views is directory for all template files
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
+
+
+//Front Page
 app.get('/', function(request, response) {
 	response.send('aayyy');
 });
 
 
+//#########   APPS    ###############
+
+//Calendar App
+
+
+app.get('/apps/calendar/landing.html', function(req, res) {
+
+	if(!req.query.courses) {
+		console.log('oh no');
+		return;
+	}
+	var courseIds = req.query.courses.split('.');
+	
+	res.send('ayyy still working on this mate');
+});
+
+
+//Pretty App
 app.get('/apps/pretty/test.css', function(req, res) {
 	res.sendFile(__dirname + '/test.css');
 });
+
+
+//Course highlight app
 app.get('/apps/courses', function(req, res) {
 	
 
@@ -34,20 +57,17 @@ app.get('/apps/courses', function(req, res) {
 
 	
 	if(classCode && classCode.length > 0) {
-		console.log('doing classCode');
-		console.log('classCode before: ' + classCode);
-		classCode = classCode.replace(/[^a-zA-Z0-9]/g, '');
 
-		console.log('classCode after: ' + classCode);
-		console.log(classCode);
+		classCode = classCode.replace(/[^a-zA-Z0-9]/g, '');
 		redis.incCourse(classCode);
+
 		ucsd_courses.getCourseData(classCode, function(err, courseObj) {
 			if(err) {
 				console.log(err);
 				res.send(JSON.stringify(err));
 			}
 			else {
-				res.send(JSON.stringify(courseObj,null,'\t'));
+				res.send(JSON.stringify(courseObj));
 			}
 
 		});
