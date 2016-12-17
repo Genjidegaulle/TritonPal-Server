@@ -14,6 +14,8 @@ This should show something:
 {{/courses}}
 </ul>
 
+<input type="button" val="hiya">
+
 </body>
 
 </html>
