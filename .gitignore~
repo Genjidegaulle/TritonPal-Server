@@ -1,4 +1,4 @@
-.*.swp
+*.swp
 *.log
 *.sh
 .gitignore
