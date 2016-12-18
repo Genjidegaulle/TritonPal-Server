@@ -1,5 +1,3 @@
-var google = require('googleapis');
-var googleAuth = require('google-auth-library');
 
 
 function landing(req, res) {
@@ -14,6 +12,8 @@ function landing(req, res) {
 	
 	//res.send('ayyy still working on this mate');
 	res.render('test.html', {courses:courseIds, clientID: process.env.GCAL_CLIENTID});
+
+	console.log(process.env.GCAL_CLIENTID});
 	
 }
 

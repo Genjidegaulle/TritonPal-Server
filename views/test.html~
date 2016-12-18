@@ -1,9 +1,5 @@
 <html>
 <head>
-<script src="test.js"></script>
-
-
-  <head>
     <script type="text/javascript">
       // Your Client ID can be retrieved from your project in the Google
       // Developer Console, https://console.developers.google.com
@@ -107,12 +103,9 @@
         var textContent = document.createTextNode(message + '\n');
         pre.appendChild(textContent);
       }
-
-    </script>
+</script>
     <script src="https://apis.google.com/js/client.js?onload=checkAuth">
-    </script>
-  </head>
-
+	</script>
 </head>
 <body>
 
