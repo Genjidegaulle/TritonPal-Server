@@ -13,7 +13,6 @@ function landing(req, res) {
 	//res.send('ayyy still working on this mate');
 	res.render('test.html', {courses:courseIds, clientID: process.env.GCAL_CLIENTID});
 
-	console.log(process.env.GCAL_CLIENTID});
 	
 }
 
