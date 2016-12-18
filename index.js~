@@ -3,11 +3,12 @@ var express = require('express');
 var ucsd_courses = require('./modules/ucsd_courses.js');
 var redis = require('./modules/redis.js');
 var mustacheExpress = require('mustache-express');
+var calendarHandler = require('./modules/calendar.js');
+
+var google = require('googleapis');
+var googleAuth = require('google-auth-library');
 
 var app = express();
-
-
-
 
 app.set('port', (process.env.PORT || 80));
 
@@ -32,19 +33,7 @@ app.get('/', function(request, response) {
 //Calendar App
 
 
-app.get('/apps/calendar/landing.html', function(req, res) {
-
-	if(!req.query.courses) {
-		console.log('oh no');
-		return;
-	}
-
-	console.log(req.query);
-	var courseIds = req.query.courses.split('.');
-	
-	//res.send('ayyy still working on this mate');
-	res.render('test.html', {courses:courseIds});
-});
+app.get('/apps/calendar/landing.html', calendarHandler.landing);
 
 
 //Pretty App

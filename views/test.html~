@@ -1,4 +1,7 @@
 <html>
+<head>
+<script src="test.js">
+</script>
 
 <body>
 
@@ -14,7 +17,7 @@ This should show something:
 {{/courses}}
 </ul>
 
-<input type="button" val="hiya">
+<input type="button" value="hiya">
 
 </body>
 
