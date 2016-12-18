@@ -3,7 +3,7 @@
     <script type="text/javascript">
       // Your Client ID can be retrieved from your project in the Google
       // Developer Console, https://console.developers.google.com
-    var CLIENT_ID = {{clientID}};
+    var CLIENT_ID = '947982621174-q3jjim3laa960bh41qpmcghhbjqcufu0.apps.googleusercontent.com';
 
       var SCOPES = ["https://www.googleapis.com/auth/calendar.readonly"];
 
@@ -54,9 +54,20 @@
        * once client library is loaded.
        */
       function loadCalendarApi() {
-        gapi.client.load('calendar', 'v3', listUpcomingEvents);
+        gapi.client.load('calendar', 'v3', listCalendars);
       }
-
+	
+	function listCalendars() {
+		console.log('before req');
+		var request = gapi.client.calendar.calendarList.list();
+		console.log('before exec');
+		request.execute(function(resp) {
+				console.log('ayyy');
+				appendPre('results:\n');
+				for(var i = 0; i < resp.items.length; i++)
+					appendPre(resp.items[i].summary + '\n');
+		});
+	}
       /**
        * Print the summary and start datetime/date of the next ten events in
        * the authorized user's calendar. If no events are found an
