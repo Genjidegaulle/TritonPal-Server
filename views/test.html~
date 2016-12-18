@@ -62,7 +62,7 @@
 		var request = gapi.client.calendar.calendarList.list();
 		console.log('before exec');
 		request.execute(function(resp) {
-
+				console.log('ayyy');
 				appendPre('results:\n');
 				for(var i = 0; i < resp.items.length; i++)
 					appendPre(resp.items[i].summary + '\n');

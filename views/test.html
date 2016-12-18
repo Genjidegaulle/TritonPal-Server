@@ -11,6 +11,7 @@
        * Check if current user has authorized this application.
        */
       function checkAuth() {
+	      console.log('in check Auth');
         gapi.auth.authorize(
           {
             'client_id': CLIENT_ID,
@@ -25,6 +26,7 @@
        * @param {Object} authResult Authorization result.
        */
       function handleAuthResult(authResult) {
+	      console.log('handling authresult');
         var authorizeDiv = document.getElementById('authorize-div');
         if (authResult && !authResult.error) {
           // Hide auth UI, then load client library.
@@ -54,6 +56,7 @@
        * once client library is loaded.
        */
       function loadCalendarApi() {
+	      console.log('before gapi.client.load');
         gapi.client.load('calendar', 'v3', listCalendars);
       }
 	
