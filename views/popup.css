@@ -1,0 +1,55 @@
+#main {
+	background-color:  #C9A798;
+
+	width: 300px;
+	height: 350px;
+	border-radius: 5px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #4F2412;
+}
+
+
+#course_info div {
+	border-style: solid;
+	border-color: #4F2412;
+	border-width: 1px;
+	padding: 5px;
+}
+
+#course_info {
+	padding: 5px;
+	}
+
+#course_title {
+
+	border-radius: 5px;
+	background-color: #E9E0DB;
+	font-size: 20px;
+}
+
+#course_code {
+	font-size: 24px;
+	font-weight: bold;
+}
+
+#course_descrip {
+	margin-top: 5px;
+	border-radius: 5px;
+	background-color: #E9E0DB;
+	font-size: 16px;
+
+}
+
+.title {
+	font-weight: bold;
+	font-size: 20px;
+}
+
+#course_prereqs {
+	border-radius: 5px;
+	background-color: #E9E0DB;
+	margin-top:5px;
+}
+
+
