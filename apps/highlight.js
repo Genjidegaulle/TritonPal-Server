@@ -1,5 +1,5 @@
 var ucsd_courses = require('../modules/ucsd_courses.js');
-var redis = require('../modules/ucsd_courses.js');
+var redis = require('../modules/redis.js');
 
 
 function landing(req, res) {
