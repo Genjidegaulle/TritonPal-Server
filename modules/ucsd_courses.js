@@ -129,7 +129,7 @@ function getCourseData( courseString, callback) {
 		courseData.class_code = getClassCode(htmlTitle);
 		courseData.num_units = getNumUnits(htmlTitle);
 
-		courseData.description = getDescription(htmlBody);
+		courseData.course_descrip = getDescription(htmlBody);
 		courseData.prereqs = getPreReqs(htmlBody);
 
 		callback(null, courseData);
