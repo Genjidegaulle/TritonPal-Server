@@ -43,8 +43,10 @@ app.get('/apps/pretty/test.css', prettyApp.landing);
 app.get('/apps/courses', highlightApp.landing);
 
 
-//DAVID PUT YOUR STUFF HERE
-
+//DAVID PUT YOUR STUFF HERE 
+app.get('/socs', function(request, response){
+	response.send('generic response alex');
+});
 
 
 
