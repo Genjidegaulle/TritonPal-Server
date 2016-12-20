@@ -51,7 +51,7 @@ app.get('/socs', function(request, response){
 	var timeout = 5000;
 	var byId = true;
 	// Checks if quarter/sectionID are not null
-	if(quarter === null || sectionID === null){
+	if(quarter.length() == 0 || quarter === null || sectionID == null || sectionID.length() == 0){
 		response.send("One or more categories have not been supplied. Please try again, bitch");
 	}
 	socsjs.findCourse(quarter, sectionID, timeout, byId).then(function(result) {
