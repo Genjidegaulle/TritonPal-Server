@@ -3,6 +3,7 @@ var express = require('express');
 var ucsd_courses = require('./modules/ucsd_courses.js');
 var redis = require('./modules/redis.js');
 var mustacheExpress = require('mustache-express');
+var socsjs = require('socsjs');
 
 var calendarApp = require('./apps/calendar.js');
 var prettyApp = require('./apps/pretty.js');
@@ -25,7 +26,7 @@ app.set('views', __dirname + '/views');
 
 //Front Page
 app.get('/', function(request, response) {
-	response.send('aayyy');
+	response.send('aayyy');	
 });
 
 
@@ -45,7 +46,15 @@ app.get('/apps/courses', highlightApp.landing);
 
 //DAVID PUT YOUR STUFF HERE 
 app.get('/socs', function(request, response){
-	response.send('generic response alex');
+	var quarter = 'WI17';
+	var query = request.query.sectionID;
+	var timeout = 5000;
+	var byId = true;
+	socsjs.findCourse(quarter, query, timeout, byId).then(function(result) {
+    	response.send(result);    // returns a Course
+	}).catch(function(err) {
+    	response.send(err, 'oops!');
+	});
 });
 
 
