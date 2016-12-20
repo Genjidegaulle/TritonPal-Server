@@ -46,11 +46,15 @@ app.get('/apps/courses', highlightApp.landing);
 
 //DAVID PUT YOUR STUFF HERE 
 app.get('/socs', function(request, response){
-	var quarter = 'WI17';
-	var query = request.query.sectionID;
+	var quarter = request.query.quarter;
+	var sectionID = request.query.sectionID;
 	var timeout = 5000;
 	var byId = true;
-	socsjs.findCourse(quarter, query, timeout, byId).then(function(result) {
+	// Checks if quarter/sectionID are not null
+	if(quarter === null || sectionID === null){
+		response.send("One or more categories have not been supplied. Please try again, bitch");
+	}
+	socsjs.findCourse(quarter, sectionID, timeout, byId).then(function(result) {
     	response.send(result);    // returns a Course
 	}).catch(function(err) {
     	response.send(err, 'oops!');
