@@ -51,8 +51,9 @@ app.get('/socs', function(request, response){
 	var timeout = 5000;
 	var byId = true;
 	// Checks if quarter/sectionID are not null
-	if(quarter.length() == 0 || quarter === null || sectionID == null || sectionID.length() == 0){
-		response.send("One or more categories have not been supplied. Please try again, bitch");
+	if(typeof quarter === 'undefined' || typeof sectionID === 'undefined' || quarter === null ||
+	        quarter.length != 4 || sectionID.length != 6 || sectionID == null){
+		response.send("One or more categories have not been supplied correctly. Please try again, bitch");
 	}
 	socsjs.findCourse(quarter, sectionID, timeout, byId).then(function(result) {
     	response.send(result);    // returns a Course
