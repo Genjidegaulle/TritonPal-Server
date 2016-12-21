@@ -45,7 +45,7 @@ app.get('/apps/courses', highlightApp.landing);
 
 //Four Year PLan app
 
-app.get('/apps/fyp', fypApp.landing);
+//app.get('/apps/fyp', fypApp.landing);
 
 
 //DAVID PUT YOUR STUFF HERE 
