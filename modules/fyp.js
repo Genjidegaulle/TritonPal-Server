@@ -59,8 +59,10 @@ function getPlan(college, year, major, callback) {
 		}
 	});
 }
+}
 
 module.exports = {
 	getSearchControls: getSearchControls,
 	getMajors: getMajors,
 	getPlan: getPlan,
+}

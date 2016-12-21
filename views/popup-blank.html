@@ -7,7 +7,7 @@
 #main {
   background-color:  #C9A798;
 
-	  width: 300px;
+	  width: 500px;
 		height: 350px;
 		border-radius: 5px;
 		border-style: solid;
@@ -18,9 +18,12 @@
 
 #course_info div {
   border-style: solid;
-	  border-color: #4F2412;
-		  border-width: 1px;
-			  padding: 5px;
+  border-color: #4F2412;
+  border-width: 1px;
+  padding: 5px;
+	border-radius: 5px;
+	background-color: #E9E0DB;
+	font-size: 16px;
 }
 
 #course_info {
@@ -41,10 +44,15 @@
 
 #course_descrip {
   margin-top: 5px;
-	  border-radius: 5px;
-		  background-color: #E9E0DB;
-			  font-size: 16px;
+	float: left;
+	width:45%;
 
+}
+
+#course_data {
+	width:45%;
+	margin-left: 52.5%;
+	margin-top: 5px;
 }
 
 .title {
@@ -62,7 +70,6 @@
 </head>
 <body>
 <div id="main">
-
 <div id="course_info">
 
 	<div id="course_title">
@@ -75,12 +82,17 @@
 	<br>
 	{{course_descrip}}
 	</div>
+	<div id="course_data">
+		<span class="title">Course Data:</span>
+		{{course_data}}
+	</div>
 	<div id="course_prereqs">
 	<span class="title"> Pre-Reqs:</span>
 	<br>
 	{{prereqs}}
 	</div>
 
+</div>
 </div>
 
 </body>
