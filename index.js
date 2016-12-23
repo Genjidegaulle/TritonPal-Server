@@ -61,11 +61,10 @@ app.get('/socs', function(request, response){
 	}
 	else{
 		if(typeof sectionID === 'undefined' && typeof courseName === 'undefined') {
-			response.send("Not enough information is given to find a course.
-				Please include either the source ID, the course name or both.");
+			response.send("Not enough information is given to find a course. Please include either the source ID, the course name or both.");
 		}
 		else if((typeof sectionID === 'undefined' || sectionID == null)
-		    && (typeof courseName != 'undefined' && courseName != null){
+		    && (typeof courseName != 'undefined' && courseName != null)){
 			byId = false;
 		}
 		// Using Section ID
