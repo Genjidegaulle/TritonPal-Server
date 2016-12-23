@@ -43,6 +43,10 @@ app.get('/apps/pretty/test.css', prettyApp.landing);
 //Course highlight app
 app.get('/apps/courses', highlightApp.landing);
 
+//Four Year PLan app
+
+//app.get('/apps/fyp', fypApp.landing);
+
 
 //DAVID PUT YOUR STUFF HERE 
 app.get('/socs', function(request, response){
