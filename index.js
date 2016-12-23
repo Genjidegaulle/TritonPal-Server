@@ -46,20 +46,41 @@ app.get('/apps/courses', highlightApp.landing);
 
 //DAVID PUT YOUR STUFF HERE 
 app.get('/socs', function(request, response){
-	var quarter = request.query.quarter;
+	var term = request.query.term;
 	var sectionID = request.query.sectionID;
+	var courseName = request.query.courseName;
 	var timeout = 5000;
 	var byId = true;
-	// Checks if quarter/sectionID are not null
-	if(typeof quarter === 'undefined' || typeof sectionID === 'undefined' || quarter === null ||
-	        quarter.length != 4 || sectionID.length != 6 || sectionID == null){
-		response.send("One or more categories have not been supplied correctly. Please try again, bitch");
+	// Checks if term/sectionID are not undefined, null or have incorrect lengths
+	if(typeof term === 'undefined'|| term == null || term.length != 4){
+		response.send("No term!");
 	}
-	socsjs.findCourse(quarter, sectionID, timeout, byId).then(function(result) {
-    	response.send(result);    // returns a Course
-	}).catch(function(err) {
-    	response.send(err, 'oops!');
-	});
+	else{
+		if(typeof sectionID === 'undefined' && typeof courseName === 'undefined') {
+			response.send("Not enough information is given to find a course.
+				Please include either the source ID, the course name or both.");
+		}
+		else if((typeof sectionID === 'undefined' || sectionID == null)
+		    && (typeof courseName != 'undefined' && courseName != null){
+			byId = false;
+		}
+		// Using Section ID
+		if(byId){
+			socsjs.findCourse(term, sectionID, timeout, byId).then(function(result) {
+    			response.send(result);    // returns a Course
+			}).catch(function(err) {
+    			response.send(err, 'Section ID error!');
+			});
+		}
+		// Using Course Name
+		else{
+			socsjs.findCourse(term, courseName, timeout).then(function(result) {
+				response.send(result);	  // returns a Course
+			}).catch(function(err) {
+				response.send(err, 'Course Name error!');
+			});
+		}
+	}
 });
 
 
