@@ -3,6 +3,7 @@
 
 
 
+var handle = function() {};
 
 
 module.exports = {
