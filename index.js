@@ -8,6 +8,7 @@ var socsjs = require('socsjs');
 var calendarApp = require('./apps/calendar.js');
 var prettyApp = require('./apps/pretty.js');
 var highlightApp = require('./apps/highlight.js');
+var notif = require('./apps/notif.js');
 
 
 var app = express();
@@ -47,6 +48,7 @@ app.get('/apps/courses', highlightApp.landing);
 
 //app.get('/apps/fyp', fypApp.landing);
 
+app.get('/notif', notif.handle);
 
 //DAVID PUT YOUR STUFF HERE 
 app.get('/socs', function(request, response){
