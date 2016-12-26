@@ -55,11 +55,12 @@ app.get('/socs', function(request, response){
 	var courseName = request.query.courseName;
 	var timeout = 5000;
 	var byId = true;
-	// Checks if term/sectionID are not undefined, null or have incorrect lengths
+	// Checks if term are not undefined, null or have incorrect lengths
 	if(typeof term === 'undefined'|| term == null || term.length != 4){
-		response.send("No term!");
+		response.send("No/Incorrect term!");
 	}
 	else{
+		// Section ID && Course Name not there
 		if(typeof sectionID === 'undefined' && typeof courseName === 'undefined') {
 			response.send("Not enough information is given to find a course. Please include either the source ID, the course name or both.");
 		}
