@@ -5,7 +5,7 @@
       // Developer Console, https://console.developers.google.com
     var CLIENT_ID = '947982621174-q3jjim3laa960bh41qpmcghhbjqcufu0.apps.googleusercontent.com';
 
-      var SCOPES = ["https://www.googleapis.com/auth/calendar.readonly"];
+      var SCOPES = ["https://www.googleapis.com/auth/calendar"];
 
       /**
        * Check if current user has authorized this application.
@@ -59,7 +59,7 @@
 	      console.log('before gapi.client.load');
         gapi.client.load('calendar', 'v3', listCalendars);
       }
-	
+
 	function listCalendars() {
 		console.log('before req');
 		var request = gapi.client.calendar.calendarList.list();
@@ -117,6 +117,39 @@
         var textContent = document.createTextNode(message + '\n');
         pre.appendChild(textContent);
       }
+
+/**
+ * Test adding an event
+ */
+function addEvent() {
+  alert("omg");
+  var exevent = {
+    "summary": "title",
+    "start": {
+      "dateTime": "2016-12-27T09:00:00-07:00",
+      "timeZone": "America/Los_Angeles"
+    },
+    "end": {
+      "dateTime": "2016-12-28T09:00:00-07:00",
+      "timeZone": "America/Los_Angeles"
+    }
+  }
+
+  //Copied from Google's API
+  var request = gapi.client.calendar.events.insert({
+    'calendarId': 'primary',
+    'resource': exevent
+  });
+
+  request.execute(function(exevent) {
+    appendPre('Event created: ' + event.htmlLink);
+  });
+}
+
+//NEXT: Test adding an event that takes params
+//NEXTL Test with repeating events
+
+
 </script>
     <script src="https://apis.google.com/js/client.js?onload=checkAuth">
 	</script>
@@ -136,16 +169,19 @@ This should show something:
 </ul>
 
 <input type="button" value="hiya">
+<input id="clickMe" type="button" value="clickme" onclick="addEvent();" />
+<button id="authorize-button" onclick="addEvent()">
+  click to win free money
+</button>
 
-
-    <div id="authorize-div" style="display: none">
+    <div id="authorize-div" style="display:none">
       <span>Authorize access to Google Calendar API</span>
       <!--Button for the user to click to initiate auth sequence -->
       <button id="authorize-button" onclick="handleAuthClick(event)">
         Authorize
       </button>
     </div>
+
     <pre id="output"></pre>
   </body>
 </html>
-
