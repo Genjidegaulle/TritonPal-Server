@@ -44,7 +44,7 @@ app.get('/apps/pretty/test.css', prettyApp.landing);
 //Course highlight app
 app.get('/apps/courses', highlightApp.landing);
 
-//Four Year PLan app
+//Four Year Plan app
 
 //app.get('/apps/fyp', fypApp.landing);
 
@@ -53,10 +53,26 @@ app.get('/notif', notif.handle);
 //DAVID PUT YOUR STUFF HERE 
 app.get('/socs', function(request, response){
 	var term = request.query.term;
-	var sectionID = request.query.sectionID;
-	var courseName = request.query.courseName;
+	var sch = request.query.class;
 	var timeout = 5000;
 	var byId = true;
+
+	// Parsing through string for different classes
+	var courses = sch.split(':');
+	var course = [];
+	for(var i = 0; i < courses.length; i++){
+		course[i] = courses[i].split('.');
+	}
+	console.log(course);
+
+	// Splitting classes for courseName/sectionID
+	var courseName = [];
+	var sectionID = [];
+	for(var z = 0; z < course.length; z++){
+		courseName[z] = course[z][0] + course[z][1];
+		sectionID[z] = course[z][2];
+	}
+	
 	// Checks if term are not undefined, null or have incorrect lengths
 	if(typeof term === 'undefined'|| term == null || term.length != 4){
 		response.send("No/Incorrect term!");
@@ -72,16 +88,16 @@ app.get('/socs', function(request, response){
 		}
 		// Using Section ID
 		if(byId){
-			socsjs.findCourse(term, sectionID, timeout, byId).then(function(result) {
-    			response.send(result);    // returns a Course
+			socsjs.findCourses(term, sectionID, timeout, byId).then(function(result) {
+    			response.send(result);   // returns a Course
 			}).catch(function(err) {
     			response.send(err, 'Section ID error!');
 			});
 		}
 		// Using Course Name
 		else{
-			socsjs.findCourse(term, courseName, timeout).then(function(result) {
-				response.send(result);	  // returns a Course
+			socsjs.findCourses(term, courseName, timeout).then(function(result) {
+				response.send(result);	// returns a Course
 			}).catch(function(err) {
 				response.send(err, 'Course Name error!');
 			});
