@@ -118,32 +118,74 @@
         pre.appendChild(textContent);
       }
 
+//COMMENT WHERE I AM WORKING FOR ALEX
 /**
  * Test adding an event
  */
-function addEvent() {
+function addEvent(var jsonderulo) {
   alert("omg");
-  var exevent = {
-    "summary": "title",
-    "start": {
-      "dateTime": "2016-12-27T09:00:00-07:00",
-      "timeZone": "America/Los_Angeles"
-    },
-    "end": {
-      "dateTime": "2016-12-28T09:00:00-07:00",
-      "timeZone": "America/Los_Angeles"
+  //Create event for each class
+  for (var i = 0; i < jsonderulo.length; i++){
+    var days;
+    //Fix date
+    switch (jsonderulo[i].days) {
+      case "MWF":
+        days = "MO,WE,FR";
+        break;
+      case "TuTh":
+        days = "TU,TH";
+        break;
+      case "M":
+        days = "MO";
+        break;
+      case "Tu":
+          days = "TU";
+          break;
+      case "W":
+        days = "WE";
+        break;
+      case "Th":
+        days = "TH";
+        break;
+      case "F":
+        days = "FR";
+        break;
+      default:
+        console.log("ERROR IN DATE");
+        //TODO: Handle later?
     }
+
+    //Parse M,W,F or Tu, Thu
+    if (jsonderulo[i].days === ){
+    }
+    else if (jsonderulo[i].days == "TuTh"){
+      days = "TU,TH";
+    }
+    var exevent = {
+      "summary": jsonderulo[i].name,
+      "start": {
+        "dateTime": "2016-12-27T09:00:00-07:00",
+        "timeZone": "America/Los_Angeles"
+      },
+      "end": {
+        "dateTime": "2016-12-28T09:00:00-07:00",
+        "timeZone": "America/Los_Angeles"
+      },
+      "recurrence": [
+        "RRULE:FREQ=WEEKLY;COUNT=30;BYDAY=" + days;
+      ]
+    }
+
+    //Copied from Google's API
+    var request = gapi.client.calendar.events.insert({
+      'calendarId': 'primary',
+      'resource': exevent
+    });
+
+    request.execute(function(exevent) {
+      appendPre('Event created: ' + event.htmlLink);
+    });
   }
-
-  //Copied from Google's API
-  var request = gapi.client.calendar.events.insert({
-    'calendarId': 'primary',
-    'resource': exevent
-  });
-
-  request.execute(function(exevent) {
-    appendPre('Event created: ' + event.htmlLink);
-  });
 }
 
 //NEXT: Test adding an event that takes params
@@ -153,6 +195,8 @@ function addEvent() {
 </script>
     <script src="https://apis.google.com/js/client.js?onload=checkAuth">
 	</script>
+
+   <link rel="stylesheet" type="text/css" href="theme.css">
 </head>
 <body>
 
@@ -169,9 +213,7 @@ This should show something:
 </ul>
 
 <input type="button" value="hiya">
-<button id="authorize-button" onclick="addEvent()">
-  click to win free money
-</button>
+<button id="authorize-button" onclick="addEvent()"> click to win free money </button>
 
     <div id="authorize-div" style="display:none">
       <span>Authorize access to Google Calendar API</span>
