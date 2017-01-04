@@ -3,9 +3,14 @@
     <script type="text/javascript">
       // Your Client ID can be retrieved from your project in the Google
       // Developer Console, https://console.developers.google.com
-    var CLIENT_ID = '947982621174-q3jjim3laa960bh41qpmcghhbjqcufu0.apps.googleusercontent.com';
-
+      var CLIENT_ID = '947982621174-q3jjim3laa960bh41qpmcghhbjqcufu0.apps.googleusercontent.com';
       var SCOPES = ["https://www.googleapis.com/auth/calendar"];
+      var scraped_courses = JSON.parse('{"name":"COGS 107B","sections":[{"type":"discussion","sectionID":"901004","section":"B06","days":"F","time":"12:00p-12:50p","location":"CSB 005","teacher":"Nitz, Douglas A.","openSeats":0,"seatLimit":51,"waitlistSize":0,"isEnrollable":true}]},{"name":"COGS 101B","sections":[{"type":"discussion","sectionID":"890858","section":"A01","days":"M","time":"9:00a-9:50a","location":"CSB 004","teacher":"Barrera, Steven James","openSeats":0,"seatLimit":56,"waitlistSize":6,"isEnrollable":true}]}]');
+
+      //For startDate
+      var SYEAR = new Date().getFullYear();
+      var SDATE = [22, 9, 3, 3, 7]
+      var SMONTH = ["September", "January", "April", "July", "August"]
 
       /**
        * Check if current user has authorized this application.
@@ -122,47 +127,63 @@
 /**
  * Test adding an event
  */
-function addEvent(var jsonderulo) {
+function addEvent() {
   alert("omg");
+
+  //Fix startDate
+  var startDate;
+  var offset = 0;
+
+  //To fix "MWF" formatting
+  var days;
+
+  jsonderulo = scraped_courses;
   //Create event for each class
   for (var i = 0; i < jsonderulo.length; i++){
-    var days;
-    //Fix date
+
+    //Set offset and fix "MWF" formatting
     switch (jsonderulo[i].days) {
       case "MWF":
         days = "MO,WE,FR";
         break;
       case "TuTh":
         days = "TU,TH";
+        offset = 1;
         break;
       case "M":
         days = "MO";
         break;
       case "Tu":
           days = "TU";
+          offset = 1;
           break;
       case "W":
         days = "WE";
+        offset = 2;
         break;
       case "Th":
         days = "TH";
+        offset = 3;
         break;
       case "F":
         days = "FR";
+        offset = 4;
         break;
       default:
         console.log("ERROR IN DATE");
         //TODO: Handle later?
     }
 
+    startDate = SYEAR + "-" SMONTH "-" + (SDAY[1] + offset) + "T09:00:00-08:00";
+    //Fix time
     var exevent = {
       "summary": jsonderulo[i].name,
       "start": {
-        "dateTime": "2016-12-27T09:00:00-07:00",
+        "dateTime": startDate,
         "timeZone": "America/Los_Angeles"
       },
       "end": {
-        "dateTime": "2016-12-28T09:00:00-07:00",
+        "dateTime": "2016-12-27T09:00:00-08:00",
         "timeZone": "America/Los_Angeles"
       },
       "recurrence": [
@@ -182,15 +203,12 @@ function addEvent(var jsonderulo) {
   }
 }
 
-//NEXT: Test adding an event that takes params
-//NEXTL Test with repeating events
-
 
 </script>
     <script src="https://apis.google.com/js/client.js?onload=checkAuth">
 	</script>
 
-   <link rel="stylesheet" type="text/css" href="theme.css">
+  <!-- <link rel="stylesheet" type="text/css" href="stylesheet.css"> -->
 </head>
 <body>
 
