@@ -9,8 +9,8 @@
 
       //For startDate
       var SYEAR = new Date().getFullYear();
-      var SDATE = [22, 9, 3, 3, 7]
-      var SMONTH = ["September", "January", "April", "July", "August"]
+      var SDAY = [22, 9, 3, 3, 7];
+      var SMONTH = ["September", "January", "April", "July", "August"];
 
       /**
        * Check if current user has authorized this application.
@@ -129,15 +129,20 @@
  */
 function addEvent() {
   alert("omg");
+  //Load in json
+  jsonderulo = scraped_courses;
 
-  //Fix startDate
+  /** VARIABLE CITY **/
+  //To fix startDate
   var startDate;
   var offset = 0;
 
   //To fix "MWF" formatting
   var days;
 
-  jsonderulo = scraped_courses;
+  //To get start/end times
+  var startTime, endTime, times;
+
   //Create event for each class
   for (var i = 0; i < jsonderulo.length; i++){
 
@@ -174,16 +179,24 @@ function addEvent() {
         //TODO: Handle later?
     }
 
-    startDate = SYEAR + "-" SMONTH "-" + (SDAY[1] + offset) + "T09:00:00-08:00";
-    //Fix time
+    //TODO: Array index subject to change
+    startDate = SYEAR + "-" + SMONTH[1] + "-" + (SDAY[1] + offset);
+
+    //Get Start and end time
+    times = jsonderulo[i].time.split(/[ap-]+/);
+    startTime = times[0];
+    endTime = times[1];
+
+    //create event
     var exevent = {
       "summary": jsonderulo[i].name,
       "start": {
-        "dateTime": startDate,
+        "dateTime": startDate + "T09:00:00-" + startTime;
         "timeZone": "America/Los_Angeles"
       },
       "end": {
-        "dateTime": "2016-12-27T09:00:00-08:00",
+        "dateTime": startDate + "T09:00:00-" + endTime;
+        //"dateTime": "2016-12-27T09:00:00-08:00",
         "timeZone": "America/Los_Angeles"
       },
       "recurrence": [
@@ -218,11 +231,6 @@ This should show something:
 
 <br>
 
-<ul>
-{{#courses}}
-<li>* {{.}}</li>
-{{/courses}}
-</ul>
 
 <input type="button" value="hiya">
 <button id="authorize-button" onclick="addEvent()"> click to win free money </button>
