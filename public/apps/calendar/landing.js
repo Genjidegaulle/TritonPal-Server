@@ -238,15 +238,15 @@ function addEvent() {
 		times = jsonderulo[i].sections[0].time.split(/[-]+/);
 
 	    //START TIME
-	    for(var i = 0; i < 2; i++){
+	    for(var j = 0; j < 2; j++){
 	      //AM
-	      if(times[i].match(/[a]+/)){
-	        times[i] = times[i].substring(0, times[i].length - 1);
+	      if(times[j].match(/[a]+/)){
+	        times[j] = times[j].substring(0, times[j].length - 1);
 	      }
 	      //PM
 	      else{
-	        var hhMM = times[i].split('-');
-	        times[i] = ((parseInt(hhMM[0]) % 12) + 12) + ":00";
+	        var hhMM = times[j].split('-');
+	        times[j] = ((parseInt(hhMM[0]) % 12) + 12) + ":00";
 	      }
 	    }
 

@@ -102,6 +102,11 @@ app.get('/socs', function(request, response){
 				response.send(err, 'Course Name error!');
 			});
 		}
+		socsjs.findCourses(term, courseName, timeout).then(function(result) {
+				response.send(result);	// returns a Course
+			}).catch(function(err) {
+				response.send(err, 'Course Name error!');
+			});
 	}
 });
 
