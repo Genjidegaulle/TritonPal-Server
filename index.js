@@ -88,27 +88,26 @@ app.get('/socs', function(request, response){
 		}
 		// Finding all lectures and discussions and adding them
 		socsjs.findCourses(term, courseName, timeout).then(function(result) {
-				var classes = [];
-				console.log(result);
+				var tempC = [];
 				for(var i = 0; i < result.length; i++){
 					for(var j = 0; j < result[i].sections.length; j++){
 						if(result[i].sections[j].type == "lecture"){
-							classes.push(result[i].sections[j]);
+							tempC.push(result[i].sections[j]);
 						}
 						else if(result[i].sections[j].type == "discussion"){
 							if(result[i].sections[j].sectionID == sectionID[i]){
-								classes.push(result[i].sections[j]);
+								tempC.push(result[i].sections[j]);
 							}
 						}
 						/*
 						// Everything besides lectures and discussions
 						else{
-							classes.push(result[i].sections[j]);
+							tempC.push(result[i].sections[j]);
 						}*/
 						
 					}
 				}
-				console.log(classes);
+				var classes = JSON.stringify(tempC);
 				response.send(classes);	// returns a Course
 			}).catch(function(err) {
 				response.send(err, 'Course Name error!');
