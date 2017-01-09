@@ -187,6 +187,8 @@ function addEvent() {
 
 	//For recurrence
 	var recurrence;
+	
+	console.log(jsonderulo);
 
 	//Create event for each class
 	for (var i = 0; i < jsonderulo.length; i++){
