@@ -191,7 +191,6 @@ function addEvent() {
 
 	//Create event for each class
 	for (var i = 0; i < jsonderulo.length; i++){
-		console.log(i);
 		offset = 0;
 		recurrence = 10;
 

@@ -90,7 +90,6 @@ app.get('/socs', function(request, response){
 		socsjs.findCourses(term, courseName, timeout).then(function(result) {
 				var classes = [];
 				for(var i = 0; i < result.length; i++){
-					classes.push(result[i].name);
 					for(var j = 0; j < result[i].sections.length; j++){
 						if(result[i].sections[j].type == "lecture"){
 							classes.push(result[i].sections[j]);
