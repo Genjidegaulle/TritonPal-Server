@@ -245,7 +245,7 @@ function addEvent() {
 		times = jsonderulo[i].sections[0].time.split(/[-]+/);
 
     //START TIME
-    for(int i = 0; i < 2; i++){
+    for(var i = 0; i < 2; i++){
       //AM
       if(times[i].match(/[a]+/)){
         times[i] = times[i].substring(0, times[i].length - 1);
