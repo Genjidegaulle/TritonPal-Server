@@ -86,24 +86,29 @@ app.get('/socs', function(request, response){
 		    && (typeof courseName != 'undefined' && courseName != null)){
 			byId = false;
 		}
-		// Using Section ID
-		if(byId){
-			socsjs.findCourses(term, sectionID, timeout, byId).then(function(result) {
-    			response.send(result);   // returns a Course
-			}).catch(function(err) {
-    			response.send(err, 'Section ID error!');
-			});
-		}
-		// Using Course Name
-		else{
-			socsjs.findCourses(term, courseName, timeout).then(function(result) {
-				response.send(result);	// returns a Course
-			}).catch(function(err) {
-				response.send(err, 'Course Name error!');
-			});
-		}
+		// Finding all lectures and discussions and adding them
 		socsjs.findCourses(term, courseName, timeout).then(function(result) {
-				response.send(result);	// returns a Course
+				var classes = [];
+				for(var i = 0; i < result.length; i++){
+					classes.push(result[i].name);
+					for(var j = 0; j < result[i].sections.length; j++){
+						if(result[i].sections[j].type == "lecture"){
+							classes.push(result[i].sections[j]);
+						}
+						else if(result[i].sections[j].type == "discussion"){
+							if(result[i].sections[j].sectionID == sectionID[i]){
+								classes.push(result[i].sections[j]);
+							}
+						}
+						/*
+						// Everything besides lectures and discussions
+						else{
+							classes.push(result[i].sections[j]);
+						}
+						*/
+					}
+				}
+				response.send(classes);	// returns a Course
 			}).catch(function(err) {
 				response.send(err, 'Course Name error!');
 			});
