@@ -195,11 +195,6 @@ function addEvent() {
 		offset = 0;
 		recurrence = 10;
 
-		console.log(JSON.stringify(jsonderulo));
-		console.log(JSON.stringify(jsonderulo[i]));
-		console.log(JSON.stringify(jsonderulo[i].sections));
-		console.log(JSON.stringify(jsonderulo[i].sections[0]));
-		console.log(JSON.stringify(jsonderulo[i].sections[0].days));
 		//Set offset and fix "MWF" formatting
 		switch (jsonderulo[i].sections[0].days) {
 			case "MWF":
