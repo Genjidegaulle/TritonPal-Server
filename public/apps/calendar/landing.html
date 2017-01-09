@@ -6,28 +6,36 @@
     <script src="https://apis.google.com/js/client.js?onload=checkAuth"></script>
 		<link rel="stylesheet" type="text/css" href="./landing.css">
 
-  <!-- <link rel="stylesheet" type="text/css" href="stylesheet.css"> -->
 </head>
 <body>
 
-This is a test.
 
-This should show something:
+<table border="1" style="table-layout:fixed; width:100%; height:100%;">
+	
+	<tr>
 
-<br>
+		<td>
+			<input type="button" value="hiya">
+			<button id="authorize-button" onclick="addEvent()"> click to win free money </button>
 
+					<div id="authorize-div" style="display:none">
+						<span>Authorize access to Google Calendar API</span>
+						<!--Button for the user to click to initiate auth sequence -->
+						<button id="authorize-button" onclick="handleAuthClick(event)">
+							Authorize
+						</button>
+					</div>
 
-<input type="button" value="hiya">
-<button id="authorize-button" onclick="addEvent()"> click to win free money </button>
+					<pre id="output"></pre>
+		</td>
+		<td>
 
-    <div id="authorize-div" style="display:none">
-      <span>Authorize access to Google Calendar API</span>
-      <!--Button for the user to click to initiate auth sequence -->
-      <button id="authorize-button" onclick="handleAuthClick(event)">
-        Authorize
-      </button>
-    </div>
+		</td>
 
-    <pre id="output"></pre>
-  </body>
+		<td>
+
+		</td>
+	</tr>
+</table>
+</body>
 </html>
