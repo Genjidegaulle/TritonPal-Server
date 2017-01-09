@@ -7,6 +7,7 @@ alert("OMG YASSS");
 var currUrl = window.location.href;
 var splitUrl = currUrl.split('?');
 var fullUrl = "https://tritonpal.herokuapp.com/socs?" + splitUrl[1];
+var scraped_courses = null;
 
 function httpGet(method, url) {
   var xhr = new XMLHttpRequest();
@@ -34,8 +35,7 @@ if (!response) {
 }
 
 response.onload = function() {
- var responseText = response.responseText;
- console.log(responseText);
+ scraped_courses = response.responseText;
  // process the response.
 };
 
@@ -47,7 +47,7 @@ response.send();
 
 var CLIENT_ID = '947982621174-q3jjim3laa960bh41qpmcghhbjqcufu0.apps.googleusercontent.com';
 var SCOPES = ["https://www.googleapis.com/auth/calendar"];
-var scraped_courses = JSON.parse('[{"name":"COGS 107B","sections":[{"type":"discussion","sectionID":"901004","section":"B06","days":"F","time":"12:00p-12:50p","location":"CSB 005","teacher":"Nitz, Douglas A.","openSeats":0,"seatLimit":51,"waitlistSize":0,"isEnrollable":true}]},{"name":"COGS 101B","sections":[{"type":"discussion","sectionID":"890858","section":"A01","days":"M","time":"9:00a-9:50a","location":"CSB 004","teacher":"Barrera, Steven James","openSeats":0,"seatLimit":56,"waitlistSize":6,"isEnrollable":true}]}]');
+// var scraped_courses = JSON.parse('[{"name":"COGS 107B","sections":[{"type":"discussion","sectionID":"901004","section":"B06","days":"F","time":"12:00p-12:50p","location":"CSB 005","teacher":"Nitz, Douglas A.","openSeats":0,"seatLimit":51,"waitlistSize":0,"isEnrollable":true}]},{"name":"COGS 101B","sections":[{"type":"discussion","sectionID":"890858","section":"A01","days":"M","time":"9:00a-9:50a","location":"CSB 004","teacher":"Barrera, Steven James","openSeats":0,"seatLimit":56,"waitlistSize":6,"isEnrollable":true}]}]');
 
 //For startDate
 var SYEAR = new Date().getFullYear();
