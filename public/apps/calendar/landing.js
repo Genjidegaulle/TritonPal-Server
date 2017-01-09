@@ -246,7 +246,7 @@ function addEvent() {
 	      //PM
 	      else{
 	        var hhMM = times[j].split('-');
-	        times[j] = ((parseInt(hhMM[0]) % 12) + 12) + ":00";
+	        times[j] = ((parseInt(hhMM[0]) % 12) + 12) + hhMM[1];
 	      }
 	    }
 
