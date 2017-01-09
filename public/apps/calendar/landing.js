@@ -7,20 +7,43 @@ alert("OMG YASSS");
 var currUrl = window.location.href;
 var splitUrl = currUrl.split('?');
 var fullUrl = "https://tritonpal.herokuapp.com/socs?" + splitUrl[1];
-function httpGet(fullUrl, callback)
-{
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.onreadystatechange = function() { 
-        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
-            callback(xmlHttp.responseText);
-    }
-    xmlHttp.open("GET", fullUrl, true); // true for asynchronous 
-    xmlHttp.send(null);
+
+function httpGet(method, url) {
+  var xhr = new XMLHttpRequest();
+  if ("withCredentials" in xhr) {
+    // Check if the XMLHttpRequest object has a "withCredentials" property.
+    // "withCredentials" only exists on XMLHTTPRequest2 objects.
+    xhr.open(method, url, true);
+
+  } else if (typeof XDomainRequest != "undefined") {
+    // Otherwise, check if XDomainRequest.
+    // XDomainRequest only exists in IE, and is IE's way of making CORS requests.
+    xhr = new XDomainRequest();
+    xhr.open(method, url);
+
+  } else {
+
+    // Otherwise, CORS is not supported by the browser.
+    xhr = null;
+  }
+  return xhr;
+}
+var response = httpGet('GET', fullUrl);
+if (!response) {
+  throw new Error('CORS not supported');
 }
 
-httpGet(fullUrl, function(response){
-	alert(reponse);
-	});
+response.onload = function() {
+ var responseText = response.responseText;
+ console.log(responseText);
+ // process the response.
+};
+
+response.onerror = function() {
+  console.log('There was an error!');
+};
+
+response.send();
 
 var CLIENT_ID = '947982621174-q3jjim3laa960bh41qpmcghhbjqcufu0.apps.googleusercontent.com';
 var SCOPES = ["https://www.googleapis.com/auth/calendar"];
