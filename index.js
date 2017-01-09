@@ -100,15 +100,16 @@ app.get('/socs', function(request, response){
 								classes.push(result[i].sections[j]);
 							}
 						}
-						
+						/*
 						// Everything besides lectures and discussions
 						else{
 							classes.push(result[i].sections[j]);
-						}
+						}*/
 						
 					}
 				}
-				response.send(result);	// returns a Course
+				console.log(classes);
+				response.send(classes);	// returns a Course
 			}).catch(function(err) {
 				response.send(err, 'Course Name error!');
 			});
