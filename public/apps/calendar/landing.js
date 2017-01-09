@@ -1,8 +1,6 @@
 // Your Client ID can be retrieved from your project in the Google
 // Developer Console, https://console.developers.google.com
 
-alert("OMG YASSS");
-
 // Sending to scraper w/ GET request
 var currUrl = window.location.href;
 var splitUrl = currUrl.split('?');
@@ -165,7 +163,6 @@ function appendPre(message) {
 	pre.appendChild(textContent);
 }
 
-//COMMENT WHERE I AM WORKING FOR ALEX
 /**
  * Test adding an event
  */
@@ -237,6 +234,7 @@ function addEvent() {
 				console.log("ERROR IN DATE");
 				//TODO: Handle later?
 		}
+
 		//TODO: Array index subject to change
 		startDate = SYEAR + "-" + SMONTH[1] + "-" + (SDAY[1] + offset);
 		console.log("THE START DATE FOR " + jsonderulo[i].name + " IS " + jsonderulo[i].sections[0].days + " w OFFSET " + offset);

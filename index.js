@@ -64,7 +64,6 @@ app.get('/socs', function(request, response){
 	for(var i = 0; i < courses.length; i++){
 		course[i] = courses[i].split('.');
 	}
-	console.log(course);
 
 	// Splitting classes for courseName/sectionID
 	var courseName = [];
@@ -103,6 +102,11 @@ app.get('/socs', function(request, response){
 				response.send(err, 'Course Name error!');
 			});
 		}
+		socsjs.findCourses(term, courseName, timeout).then(function(result) {
+				response.send(result);	// returns a Course
+			}).catch(function(err) {
+				response.send(err, 'Course Name error!');
+			});
 	}
 });
 
