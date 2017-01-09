@@ -7,7 +7,7 @@ alert("OMG YASSS");
 var currUrl = window.location.href;
 var splitUrl = currUrl.split('?');
 var fullUrl = "https://tritonpal.herokuapp.com/socs?" + splitUrl[1];
-var scraped_courses = null;
+var scraped_courses = '[{"name":"COGS 100","sections":[{"type":"discussion","sectionID":"890856","section":"A01","days":"M","time":"2:00p-2:50p","location":"PCYNH 120","teacher":"Kirsh, David Joel","openSeats":0,"seatLimit":50,"waitlistSize":5,"isEnrollable":true}]},{"name":"CSE 30","sections":[{"type":"lecture","sectionID":"894541","section":"A00","days":"TuTh","time":"12:30p-1:50p","location":"SOLIS 107","teacher":"Ord, Richard","openSeats":0,"seatLimit":300,"waitlistSize":11,"isEnrollable":true}]},{"name":"COGS 107B","sections":[{"type":"discussion","sectionID":"901004","section":"B06","days":"F","time":"12:00p-12:50p","location":"CSB 005","teacher":"Nitz, Douglas A.","openSeats":0,"seatLimit":51,"waitlistSize":1,"isEnrollable":true}]},{"name":"COGS 101B","sections":[{"type":"discussion","sectionID":"890858","section":"A01","days":"M","time":"9:00a-9:50a","location":"CSB 004","teacher":"Barrera, Steven James","openSeats":0,"seatLimit":56,"waitlistSize":1,"isEnrollable":true}]}]';
 
 function httpGet(method, url) {
   var xhr = new XMLHttpRequest();
@@ -171,8 +171,9 @@ function appendPre(message) {
  */
 function addEvent() {
 	alert("omg");
-	//Load in json
-	jsonderulo = scraped_courses;
+	//Load in jso  n
+  jsonderulo=JSON.parse(scraped_courses);
+	//jsonderulo = scraped_courses;
 
 	/** VARIABLE CITY **/
 	//To fix startDate
@@ -187,22 +188,24 @@ function addEvent() {
 
 	//For recurrence
 	var recurrence;
-	
-	console.log(jsonderulo);
 
-
+	console.log("This is the class" + jsonderulo);
 
 	//Create event for each class
 	for (var i = 0; i < jsonderulo.length; i++){
 		console.log(i);
 		offset = 0;
 		recurrence = 10;
-		
+
+    /*
 		console.log(JSON.stringify(jsonderulo));
 		console.log(JSON.stringify(jsonderulo[i]));
 		console.log(JSON.stringify(jsonderulo[i].sections));
 		console.log(JSON.stringify(jsonderulo[i].sections[0]));
 		console.log(JSON.stringify(jsonderulo[i].sections[0].days));
+    */
+
+      console.log("The json we're working on is " + jsonderulo[i]);
 		//Set offset and fix "MWF" formatting
 		switch (jsonderulo[i].sections[0].days) {
 			case "MWF":
@@ -242,10 +245,17 @@ function addEvent() {
 		console.log("THE START DATE FOR " + jsonderulo[i].name + " IS " + jsonderulo[i].sections[0].days + " w OFFSET " + offset);
 
 		//Get Start and end time
-		times = jsonderulo[i].sections[0].time.split(/[ap-]+/);
+		times = jsonderulo[i].sections[0].time.split(/[-]+/);
 		startTime = times[0];
 		endTime = times[1];
-
+    //Fix start and end time
+    if(startTime.match(/[a]+/)){
+      startTime = startTime.substring(startTime.length - 2, startTime.length - 1);
+      console.log("The start time is " + startTime);
+    }
+    else{
+      console.log("ITS NOT AM YO");
+    }
 		//create event
 		var exevent = {
 			"summary": jsonderulo[i].name,
@@ -275,4 +285,3 @@ function addEvent() {
 				});
 	}
 }
-
