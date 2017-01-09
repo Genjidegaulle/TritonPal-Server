@@ -3,6 +3,25 @@
 
 alert("OMG YASSS");
 
+// Sending to scraper w/ GET request
+var currUrl = window.location.href;
+var splitUrl = currUrl.split('?');
+var fullUrl = "https://tritonpal.herokuapp.com/socs?" + splitUrl[1];
+function httpGet(fullUrl, callback)
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function() { 
+        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+            callback(xmlHttp.responseText);
+    }
+    xmlHttp.open("GET", fullUrl, true); // true for asynchronous 
+    xmlHttp.send(null);
+}
+
+httpGet(fullUrl, function(response){
+	alert(reponse);
+	});
+
 var CLIENT_ID = '947982621174-q3jjim3laa960bh41qpmcghhbjqcufu0.apps.googleusercontent.com';
 var SCOPES = ["https://www.googleapis.com/auth/calendar"];
 var scraped_courses = JSON.parse('[{"name":"COGS 107B","sections":[{"type":"discussion","sectionID":"901004","section":"B06","days":"F","time":"12:00p-12:50p","location":"CSB 005","teacher":"Nitz, Douglas A.","openSeats":0,"seatLimit":51,"waitlistSize":0,"isEnrollable":true}]},{"name":"COGS 101B","sections":[{"type":"discussion","sectionID":"890858","section":"A01","days":"M","time":"9:00a-9:50a","location":"CSB 004","teacher":"Barrera, Steven James","openSeats":0,"seatLimit":56,"waitlistSize":6,"isEnrollable":true}]}]');
