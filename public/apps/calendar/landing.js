@@ -184,7 +184,7 @@ function addEvent() {
 
 	//For recurrence
 	var recurrence;
-	
+
 	console.log(jsonderulo);
 
 
@@ -194,7 +194,7 @@ function addEvent() {
 		console.log(i);
 		offset = 0;
 		recurrence = 10;
-		
+
 		console.log(JSON.stringify(jsonderulo));
 		console.log(JSON.stringify(jsonderulo[i]));
 		console.log(JSON.stringify(jsonderulo[i].sections));
@@ -240,9 +240,23 @@ function addEvent() {
 		console.log("THE START DATE FOR " + jsonderulo[i].name + " IS " + jsonderulo[i].sections[0].days + " w OFFSET " + offset);
 
 		//Get Start and end time
-		times = jsonderulo[i].sections[0].time.split(/[ap-]+/);
-		startTime = times[0];
-		endTime = times[1];
+		times = jsonderulo[i].sections[0].time.split(/[-]+/);
+
+    //START TIME
+    for(var i = 0; i < 2; i++){
+      //AM
+      if(times[i].match(/[a]+/)){
+        times[i] = times[i].substring(0, times[i].length - 1);
+      }
+      //PM
+      else{
+        var hhMM = times[i].split("-");
+        times[i] = ((parseInt(hhMM[0]) % 12) + 12) + ":00";
+      }
+    }
+
+    startTime = times[0];
+    endTime = times[1];
 
 		//create event
 		var exevent = {
@@ -273,4 +287,3 @@ function addEvent() {
 				});
 	}
 }
-
