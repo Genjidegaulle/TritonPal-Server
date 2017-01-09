@@ -190,11 +190,19 @@ function addEvent() {
 	
 	console.log(jsonderulo);
 
+
+
 	//Create event for each class
 	for (var i = 0; i < jsonderulo.length; i++){
+		console.log(i);
 		offset = 0;
 		recurrence = 10;
-
+		
+		console.log(JSON.stringify(jsonderulo));
+		console.log(JSON.stringify(jsonderulo[i]));
+		console.log(JSON.stringify(jsonderulo[i].sections));
+		console.log(JSON.stringify(jsonderulo[i].sections[0]));
+		console.log(JSON.stringify(jsonderulo[i].sections[0].days));
 		//Set offset and fix "MWF" formatting
 		switch (jsonderulo[i].sections[0].days) {
 			case "MWF":
