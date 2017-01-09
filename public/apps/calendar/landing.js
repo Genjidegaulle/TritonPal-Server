@@ -237,21 +237,21 @@ function addEvent() {
 		//Get Start and end time
 		times = jsonderulo[i].sections[0].time.split(/[-]+/);
 
-    //START TIME
-    for(var i = 0; i < 2; i++){
-      //AM
-      if(times[i].match(/[a]+/)){
-        times[i] = times[i].substring(0, times[i].length - 1);
-      }
-      //PM
-      else{
-        var hhMM = times[i].split("-");
-        times[i] = ((parseInt(hhMM[0]) % 12) + 12) + ":00";
-      }
-    }
+	    //START TIME
+	    for(var i = 0; i < 2; i++){
+	      //AM
+	      if(times[i].match(/[a]+/)){
+	        times[i] = times[i].substring(0, times[i].length - 1);
+	      }
+	      //PM
+	      else{
+	        var hhMM = times[i].split('-');
+	        times[i] = ((parseInt(hhMM[0]) % 12) + 12) + ":00";
+	      }
+	    }
 
-    startTime = times[0];
-    endTime = times[1];
+	    startTime = times[0];
+	    endTime = times[1];
 
 		//create event
 		var exevent = {
