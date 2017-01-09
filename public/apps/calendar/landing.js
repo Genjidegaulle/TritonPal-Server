@@ -35,7 +35,7 @@ if (!response) {
 }
 
 response.onload = function() {
- scraped_courses = response.responseText;
+ scraped_courses = JSON.parse(response.responseText);
  // process the response.
 };
 
