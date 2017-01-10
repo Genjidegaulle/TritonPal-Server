@@ -242,11 +242,16 @@ function addEvent() {
 	    for(var j = 0; j < 2; j++){
 	      //AM
 	      if(times[j].match(/[a]+/)){
+          //Simply remove "a"
 	        times[j] = times[j].substring(0, times[j].length - 1);
 	      }
 	      //PM
 	      else{
-	        var hhMM = times[j].split(":");
+          //Remove "p"
+          times[j] = times[j].substring(0, times[j].length - 1);
+
+          //Convert to 24HR format 
+          var hhMM = times[j].split(":");
 	        times[j] = ((parseInt(hhMM[0]) % 12) + 12) + ":" + hhMM[1];
 	      }
 	    }
