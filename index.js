@@ -88,6 +88,23 @@ app.get('/socs', function(request, response){
 				for(var i = 0; i < result.length; i++){
 					var disTeach = "";
 					var disSec = "";
+					var numDis = 0;
+					var temp;
+					for(var d = 0; d < result[i].sections.length; d++){
+						var temp = result[i].sections[d];
+						if(temp.type == "discussion" && temp.sectionID == null){
+							numDis++;
+						}
+					}
+					if(numDis > 1){
+						for(var q = 0; q < result[i].sections.length; q++){
+							temp = result[i].sections[q];
+							if(temp.type == "discussion" && temp.sectionID == null){
+								result[i].sections.splice(q, 1);
+								q -= 1;
+							}
+						}
+					}
 					for(var j = 0; j < result[i].sections.length; j++){
 						var sec = result[i].sections[j];
 						// Remove lecture if incorrect
@@ -101,11 +118,11 @@ app.get('/socs', function(request, response){
 						else if(sec.type == "discussion"){
 							if(sec.sectionID != sectionID[i] && sec.sectionID != null){
 								result[i].sections.splice(j, 1);
-								j -= 1;
+									j -= 1;
 							}
 							else{
 								disTeach = sec.teacher;
-								disSec = sec.section[0];
+								disSec = sec.section;
 							}
 						// Removes all else
 						}
@@ -119,7 +136,7 @@ app.get('/socs', function(request, response){
 						var sec = result[i].sections[z];
 						if(sec.type == "lecture" && disTeach != null && disSec != null){
 							if(sec.sectionID != sectionID[i] && sec.teacher != disTeach
-								|| sec.sectionID != sectionID[i] && sec.section[0] != disSec){
+								|| sec.sectionID != sectionID[i] && sec.section[0] != disSec[0]){
 								result[i].sections.splice(z, 1);
 								z -= 1;
 							}
