@@ -251,7 +251,7 @@ function addEvent() {
 
 	    startTime = times[0];
 	    endTime = times[1];
-
+      console.log("THE START TIME IS " + startTime);
 		//create event
 		var exevent = {
 			"summary": jsonderulo[i].name,
