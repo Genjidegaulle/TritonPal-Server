@@ -235,6 +235,8 @@ function addEvent() {
 
 		//Get Start and end time
 		times = jsonderulo[i].sections[0].time.split(/[-]+/);
+    console.log("THE 2 TIMES ARE " + jsonderulo[i].sections[0].time);
+    console.log("OR " + times[0] + " " + times[1]);
 
 	    //START TIME
 	    for(var j = 0; j < 2; j++){
