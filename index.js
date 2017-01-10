@@ -87,6 +87,7 @@ app.get('/socs', function(request, response){
 				// var tempC = [];
 				for(var i = 0; i < result.length; i++){
 					var disTeach = "";
+					var disSec = "";
 					for(var j = 0; j < result[i].sections.length; j++){
 						var sec = result[i].sections[j];
 						// Remove lecture if incorrect
@@ -103,7 +104,8 @@ app.get('/socs', function(request, response){
 								j -= 1;
 							}
 							else{
-								disTeach = result[i].sections[j].teacher;
+								disTeach = sec.teacher;
+								disSec = sec.section[0];
 							}
 						// Removes all else
 						}
@@ -116,7 +118,8 @@ app.get('/socs', function(request, response){
 					for(var z = 0; z < result[i].sections.length; z++){
 						var sec = result[i].sections[z];
 						if(sec.type == "lecture" && disTeach != null){
-							if(sec.sectionID != sectionID[i] && sec.teacher != disTeach){
+							if(sec.sectionID != sectionID[i] && sec.teacher != disTeach
+								|| sec.sectionID != sectionID[i] && sec.section[0] != disSec){
 								result[i].sections.splice(z, 1);
 								z -= 1;
 							}
