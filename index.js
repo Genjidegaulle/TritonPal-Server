@@ -99,7 +99,7 @@ app.get('/socs', function(request, response){
 						}
 						// Remove discussion if incorrect
 						else if(sec.type == "discussion"){
-							if(sec.sectionID != sectionID[i]){
+							if(sec.sectionID != sectionID[i] && sec.sectionID != null){
 								result[i].sections.splice(j, 1);
 								j -= 1;
 							}
@@ -117,7 +117,7 @@ app.get('/socs', function(request, response){
 					// Removing lectures with incorrect teachers
 					for(var z = 0; z < result[i].sections.length; z++){
 						var sec = result[i].sections[z];
-						if(sec.type == "lecture" && disTeach != null){
+						if(sec.type == "lecture" && disTeach != null && disSec != null){
 							if(sec.sectionID != sectionID[i] && sec.teacher != disTeach
 								|| sec.sectionID != sectionID[i] && sec.section[0] != disSec){
 								result[i].sections.splice(z, 1);
@@ -146,7 +146,6 @@ app.get('/socs', function(request, response){
 					}*/
 				}
 				//var classes = JSON.stringify(tempC);
-				console.log(result);
 				response.send(result);	// returns Courses
 			}).catch(function(err) {
 				response.send(err, 'Course Name error!');
