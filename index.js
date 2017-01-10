@@ -115,7 +115,7 @@ app.get('/socs', function(request, response){
 					// Removing lectures with incorrect teachers
 					for(var z = 0; z < result[i].sections.length; z++){
 						var sec = result[i].sections[z];
-						if(sec.type == "lecture"){
+						if(sec.type == "lecture" && disTeach != null){
 							if(sec.sectionID != sectionID[i] && sec.teacher != disTeach){
 								result[i].sections.splice(z, 1);
 								z -= 1;
