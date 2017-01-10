@@ -78,60 +78,72 @@ app.get('/socs', function(request, response){
 		response.send("No/Incorrect term!");
 	}
 	else{
-		// Section ID && Course Name not there
-		if(typeof sectionID === 'undefined' && typeof courseName === 'undefined') {
+		// Course Name not there
+		if(typeof courseName === 'undefined') {
 			response.send("Not enough information is given to find a course. Please include either the source ID, the course name or both.");
-		}
-		else if((typeof sectionID === 'undefined' || sectionID == null)
-		    && (typeof courseName != 'undefined' && courseName != null)){
-			byId = false;
 		}
 		// Finding all lectures and discussions and adding them
 		socsjs.findCourses(term, courseName, timeout).then(function(result) {
-				var tempC = [];
-				console.log(result);
+				// var tempC = [];
 				for(var i = 0; i < result.length; i++){
+					var disTeach = "";
 					for(var j = 0; j < result[i].sections.length; j++){
 						var sec = result[i].sections[j];
+						// Remove lecture if incorrect
 						if(sec.type == "lecture"){
 							if(sec.sectionID != sectionID[i] && sec.sectionID != null){
 								result[i].sections.splice(j, 1);
 								j -= 1;
 							}
 						}
+						// Remove discussion if incorrect
 						else if(sec.type == "discussion"){
 							if(sec.sectionID != sectionID[i]){
 								result[i].sections.splice(j, 1);
 								j -= 1;
 							}
+							else{
+								disTeach = result[i].sections[j].teacher;
+							}
+						// Removes all else
 						}
 						else{
 							result[i].sections.splice(j, 1);
 							j -= 1;
 						}
-						/*if(sec.type == "lecture"){
-							if(sec.sectionID == null){
-								tempC.push(sec);
-							}
-							else{
-								if(sec.sectionID == sectionID[i]){
-									tempC.push(sec);
-								}
+					}
+					// Removing lectures with incorrect teachers
+					for(var z = 0; z < result[i].sections.length; z++){
+						var sec = result[i].sections[z];
+						if(sec.type == "lecture"){
+							if(sec.sectionID != sectionID[i] && sec.teacher != disTeach){
+								result[i].sections.splice(z, 1);
+								z -= 1;
 							}
 						}
-						else if(sec.type == "discussion"){
+					}
+					/*if(sec.type == "lecture"){
+						if(sec.sectionID == null){
+							tempC.push(sec);
+						}
+						else{
 							if(sec.sectionID == sectionID[i]){
 								tempC.push(sec);
 							}
 						}
-						// Everything besides lectures and discussions
-						else{
-							tempC.push(result[i].sections[j]);
-						}*/
-						
 					}
+					else if(sec.type == "discussion"){
+						if(sec.sectionID == sectionID[i]){
+							tempC.push(sec);
+						}
+					}
+					// Everything besides lectures and discussions
+					else{
+						tempC.push(result[i].sections[j]);
+					}*/
 				}
 				//var classes = JSON.stringify(tempC);
+				console.log(result);
 				response.send(result);	// returns Courses
 			}).catch(function(err) {
 				response.send(err, 'Course Name error!');
