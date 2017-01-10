@@ -191,100 +191,102 @@ function addEvent() {
 
 	//Create event for each class
 	for (var i = 0; i < jsonderulo.length; i++){
-		offset = 0;
-		recurrence = 10;
+    for (var k = 0; k < jsonderulo[i].section.length; k++){
+  		offset = 0;
+  		recurrence = 10;
 
-		//Set offset and fix "MWF" formatting
-		switch (jsonderulo[i].sections[0].days) {
-			case "MWF":
-				days = "MO,WE,FR";
-				recurrence = 30;
-				break;
-			case "TuTh":
-				days = "TU,TH";
-				recurrence = 20;
-				offset = 1;
-				break;
-			case "M":
-				days = "MO";
-				break;
-			case "Tu":
-				days = "TU";
-				offset = 1;
-				break;
-			case "W":
-				days = "WE";
-				offset = 2;
-				break;
-			case "Th":
-				days = "TH";
-				offset = 3;
-				break;
-			case "F":
-				days = "FR";
-				offset = 4;
-				break;
-			default:
-				console.log("ERROR IN DATE");
-				//TODO: Handle later?
-		}
+  		//Set offset and fix "MWF" formatting
+  		switch (jsonderulo[i].sections[k].days) {
+  			case "MWF":
+  				days = "MO,WE,FR";
+  				recurrence = 30;
+  				break;
+  			case "TuTh":
+  				days = "TU,TH";
+  				recurrence = 20;
+  				offset = 1;
+  				break;
+  			case "M":
+  				days = "MO";
+  				break;
+  			case "Tu":
+  				days = "TU";
+  				offset = 1;
+  				break;
+  			case "W":
+  				days = "WE";
+  				offset = 2;
+  				break;
+  			case "Th":
+  				days = "TH";
+  				offset = 3;
+  				break;
+  			case "F":
+  				days = "FR";
+  				offset = 4;
+  				break;
+  			default:
+  				console.log("ERROR IN DATE");
+  				//TODO: Handle later?
+  		}
 
-		//TODO: Array index subject to change
-		startDate = SYEAR + "-" + SMONTH[1] + "-" + (SDAY[1] + offset);
-		console.log("THE START DATE FOR " + jsonderulo[i].name + " IS " + jsonderulo[i].sections[0].days + " w OFFSET " + offset);
+  		//TODO: Array index subject to change
+  		startDate = SYEAR + "-" + SMONTH[1] + "-" + (SDAY[1] + offset);
+  		console.log("THE START DATE FOR " + jsonderulo[i].name + " IS " + jsonderulo[i].sections[k].days + " w OFFSET " + offset);
 
-		//Get Start and end time
-		times = jsonderulo[i].sections[0].time.split(/[-]+/);
-    console.log("THE 2 TIMES ARE " + jsonderulo[i].sections[0].time);
-    console.log("OR " + times[0] + " " + times[1]);
+  		//Get Start and end time
+  		times = jsonderulo[i].sections[k].time.split(/[-]+/);
+      console.log("THE 2 TIMES ARE " + jsonderulo[i].sections[k].time);
+      console.log("OR " + times[0] + " " + times[1]);
 
-	    //START TIME
-	    for(var j = 0; j < 2; j++){
-	      //AM
-	      if(times[j].match(/[a]+/)){
-          //Simply remove "a"
-	        times[j] = times[j].substring(0, times[j].length - 1);
-	      }
-	      //PM
-	      else{
-          //Remove "p"
-          times[j] = times[j].substring(0, times[j].length - 1);
+  	    //START TIME
+  	    for(var j = 0; j < 2; j++){
+  	      //AM
+  	      if(times[j].match(/[a]+/)){
+            //Simply remove "a"
+  	        times[j] = times[j].substring(0, times[j].length - 1);
+  	      }
+  	      //PM
+  	      else{
+            //Remove "p"
+            times[j] = times[j].substring(0, times[j].length - 1);
 
-          //Convert to 24HR format 
-          var hhMM = times[j].split(":");
-	        times[j] = ((parseInt(hhMM[0]) % 12) + 12) + ":" + hhMM[1];
-	      }
-	    }
+            //Convert to 24HR format
+            var hhMM = times[j].split(":");
+  	        times[j] = ((parseInt(hhMM[0]) % 12) + 12) + ":" + hhMM[1];
+  	      }
+  	    }
 
-	    startTime = times[0];
-	    endTime = times[1];
-      console.log("THE START TIME IS " + startTime);
-		//create event
-		var exevent = {
-			"summary": jsonderulo[i].name,
-			"start": {
-				"dateTime": startDate + "T" + startTime + ":00",
-				"timeZone": "America/Los_Angeles"
-			},
-			"end": {
-				"dateTime": startDate + "T" + endTime + ":00",
-				//"dateTime": "2016-12-27T09:00:00-08:00",
-				"timeZone": "America/Los_Angeles"
-			},
-			"recurrence": [
-				"RRULE:FREQ=WEEKLY;COUNT=" + recurrence + ";BYDAY=" + days,
-			]
-		}
-		console.log("THE DAYS ARE " + days);
-		console.log(exevent);
-		//Copied from Google's API
-		var request = gapi.client.calendar.events.insert({
-				'calendarId': 'primary',
-				'resource': exevent
-				});
+  	    startTime = times[0];
+  	    endTime = times[1];
+        console.log("THE START TIME IS " + startTime);
+  		//create event
+  		var exevent = {
+  			"summary": jsonderulo[i].name,
+  			"start": {
+  				"dateTime": startDate + "T" + startTime + ":00",
+  				"timeZone": "America/Los_Angeles"
+  			},
+  			"end": {
+  				"dateTime": startDate + "T" + endTime + ":00",
+  				//"dateTime": "2016-12-27T09:00:00-08:00",
+  				"timeZone": "America/Los_Angeles"
+  			},
+  			"recurrence": [
+  				"RRULE:FREQ=WEEKLY;COUNT=" + recurrence + ";BYDAY=" + days,
+  			]
+  		}
+  		console.log("THE DAYS ARE " + days);
+  		console.log(exevent);
+  		//Copied from Google's API
+  		var request = gapi.client.calendar.events.insert({
+  				'calendarId': 'primary',
+  				'resource': exevent
+  				});
 
-		request.execute(function(exevent) {
-				appendPre('Event created: ' + event.htmlLink);
-				});
-	}
+  		request.execute(function(exevent) {
+  				appendPre('Event created: ' + event.htmlLink);
+  				});
+  	}
+  }
 }
