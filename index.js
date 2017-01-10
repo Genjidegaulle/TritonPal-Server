@@ -91,12 +91,20 @@ app.get('/socs', function(request, response){
 				var tempC = [];
 				for(var i = 0; i < result.length; i++){
 					for(var j = 0; j < result[i].sections.length; j++){
-						if(result[i].sections[j].type == "lecture"){
-							tempC.push(result[i].sections[j]);
+						var sec = result[i].sections[j];
+						if(sec.type == "lecture"){
+							if(sec.sectionID == null){
+								tempC.push(sec);
+							}
+							else{
+								if(sec.sectionID == sectionID[i]){
+									tempC.push(sec);
+								}
+							}
 						}
-						else if(result[i].sections[j].type == "discussion"){
-							if(result[i].sections[j].sectionID == sectionID[i]){
-								tempC.push(result[i].sections[j]);
+						else if(sec.type == "discussion"){
+							if(sec.sectionID == sectionID[i]){
+								tempC.push(sec);
 							}
 						}
 						/*
@@ -107,8 +115,7 @@ app.get('/socs', function(request, response){
 						
 					}
 				}
-				var classes = JSON.stringify(tempC);
-				response.send(classes);	// returns a Course
+				response.send(tempC);	// returns Courses
 			}).catch(function(err) {
 				response.send(err, 'Course Name error!');
 			});
