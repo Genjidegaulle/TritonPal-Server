@@ -45,7 +45,6 @@ response.send();
 
 var CLIENT_ID = '947982621174-q3jjim3laa960bh41qpmcghhbjqcufu0.apps.googleusercontent.com';
 var SCOPES = ["https://www.googleapis.com/auth/calendar"];
-// var scraped_courses = JSON.parse('[{"name":"COGS 107B","sections":[{"type":"discussion","sectionID":"901004","section":"B06","days":"F","time":"12:00p-12:50p","location":"CSB 005","teacher":"Nitz, Douglas A.","openSeats":0,"seatLimit":51,"waitlistSize":0,"isEnrollable":true}]},{"name":"COGS 101B","sections":[{"type":"discussion","sectionID":"890858","section":"A01","days":"M","time":"9:00a-9:50a","location":"CSB 004","teacher":"Barrera, Steven James","openSeats":0,"seatLimit":56,"waitlistSize":6,"isEnrollable":true}]}]');
 
 //For startDate
 var SYEAR = new Date().getFullYear();
@@ -113,7 +112,7 @@ function listCalendars() {
 			console.log('ayyy');
 			appendPre('results:\n');
 			for(var i = 0; i < resp.items.length; i++)
-			appendPre(resp.items[i].summary + '\n');
+			 appendPre(resp.items[i].summary + '\n');
 			});
 }
 /**
@@ -167,7 +166,6 @@ function appendPre(message) {
  * Test adding an event
  */
 function addEvent() {
-	alert("omg");
 	//Load in json
 	jsonderulo = scraped_courses;
 
@@ -184,10 +182,6 @@ function addEvent() {
 
 	//For recurrence
 	var recurrence;
-
-	console.log(jsonderulo);
-
-
 
 	//Create event for each class
 	for (var i = 0; i < jsonderulo.length; i++){
