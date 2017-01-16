@@ -1,0 +1,17 @@
+.jumbotron {
+  display: flex;
+  align-items: center;
+  height: 500px;
+  text-shadow: 0.25px 0.25px 0.25px #000000;
+  color: white;
+  /*If we want to use an image
+  background-size: cover; */
+}
+
+.jumbotron h1 {
+  font-family: 'Roboto', sans-serif;
+}
+
+.jumbotron h4 {
+  font-family: 'Overpass', sans-serif;
+}
