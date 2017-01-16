@@ -1,7 +1,9 @@
+ @import url('https://fonts.googleapis.com/css?family=Overpass|Roboto:900|Source+Sans+Pro:700');
+
 .jumbotron {
   display: flex;
   align-items: center;
-  height: 500px;
+  height: 900px;
   text-shadow: 0.25px 0.25px 0.25px #000000;
   color: white;
   /*If we want to use an image
@@ -10,6 +12,7 @@
 
 .jumbotron h1 {
   font-family: 'Roboto', sans-serif;
+  color:white;
 }
 
 .jumbotron h2 {
