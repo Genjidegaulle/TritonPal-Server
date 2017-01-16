@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Overpass|Roboto:900|Source+Sans+Pro:700');
 
-#jumbotron {
+.jumbotron {
  display: flex;
  align-items: center;
  height: 900px;
@@ -10,11 +10,11 @@
  background-size: cover; */
 }
 
-#jumbotron h1 {
+.jumbotron h1 {
  font-family: 'Roboto', sans-serif;
  color:white;
 }
 
-#jumbotron h2 {
+.jumbotron h2 {
  font-family: 'Overpass', sans-serif;
 }
