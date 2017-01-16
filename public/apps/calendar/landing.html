@@ -1,8 +1,6 @@
 <html>
 <head>
 
-	<script src="./landing.js"></script>
-
     <!-- Google API -->
     <script src="https://apis.google.com/js/client.js?onload=checkAuth"></script>
 
@@ -54,7 +52,7 @@
 
 					<div id="authorize-div" style="display:none">
 						<span>Authorize access to Google Calendar API</span>
-						<!--Button for the user to click to initiate auth sequence -->
+						<!--Button for the user to click too initiate auth sequence -->
 						<button id="authorize-button" onclick="handleAuthClick(event)">
 							Authorize
 						</button>
@@ -71,12 +69,13 @@
 			</table>
 		</td>
 
-		<script language="javascript">
+		<script language="javascript" src="landing.js">
 			var landing = landing.js;
 			var classes = [];
-			for(var i = 0; i < landing.jsonderulo.length; i++){
+			for(var i = 0; i < jsonderulo.length; i++){
+				classes.push(jsonderulo[i].name);
 			}
-			alert()
+			document.write(classes);
 		</script>
 
 		<td>
