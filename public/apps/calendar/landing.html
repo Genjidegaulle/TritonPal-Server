@@ -1,6 +1,6 @@
 <html>
 <head>
-
+	
 	<script src="landing.js">
 			var landing = landing.js;
 			var classes = [];
@@ -10,11 +10,17 @@
 			document.write(classes);
 	</script>
 	
+  <!-- Google API -->
+  <script src="https://apis.google.com/js/client.js?onload=checkAuth"></script>
+
+	<script src="landing.js"></script>
     <!-- Google API -->
     <script src="https://apis.google.com/js/client.js?onload=checkAuth"></script>
 
-    <!-- Bootstrap -->
-  	<link rel="stylesheet" type="text/css" href="./landing.css">
+  <!-- Own stylesheet -->
+  <link rel="stylesheet" type="text/css" href="landing.css">
+
+  <!-- Bootstrap -->
 	<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
@@ -26,27 +32,29 @@
 </head>
 <body>
 
-  <section class="jumbotron">
+  <section class="jumbotron" id="step1">
     <div class="container">
-        <div class="row text-center">
-          <div id="step1">
-            <h1> Step 1: </h2>
-            <h2> Authorize Email </h2>
-            <h4> Entered email: ________ </h4>
-          </div>
-
-          <div id="step2">
-            <h1> Step 2: </h1>
-            <h2> Select Calendar </h2>
-          </div>
-
-          <div id="step3">
-            <h1> Step 3: </h1>
-            <h2> Verify and Add </h2>
-
-          </div>
-
-        </div>
+      <div class="row text-center">
+        <h1> Step 1: </h2>
+        <h2> Authorize Email </h2>
+        <h4> Entered email: ________ </h4>
+      </div>
+    </div>
+  </section>
+  <section class="jumbotron" id="step2">
+    <div class="row text-center">
+      <div class="container">
+        <h1> Step 2: </h1>
+        <h2> Select Calendar </h2>
+      </div>
+    </div>
+  </section>
+  <section class="jumbotron" id="step3">
+    <div class="row text-center">
+      <div class="container">
+        <h1> Step 3: </h1>
+        <h2> Verify and Add </h2>
+      </div>
     </div>
   </section>
 
