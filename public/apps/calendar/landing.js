@@ -163,11 +163,11 @@ function appendPre(message) {
 }
 
 function showClasses(){
-  console.log("hi");
-  for(var i = 0; i < scraped_courses.length; i++){
-    console.log(scraped_courses[i].name);
-    document.write(scraped_courses[i].name);
+  var classes = [];
+  for(var q = 0; q < scraped_courses.length; q++){
+    classes.push(scraped_courses[q].name + ", ");
   }
+  alert("These are your classes: " + classes);
 }
 
 /**
@@ -176,11 +176,6 @@ function showClasses(){
 function addEvent() {
 	//Load in json
 	jsonderulo = scraped_courses;
-  var classes = [];
-  for(var q = 0; q < jsonderulo.length; q++){
-    classes.push(jsonderulo[q].name + ", ");
-  }
-  alert("These are your classes: " + classes);
 
 	/** VARIABLE CITY **/
 	//To fix startDate
