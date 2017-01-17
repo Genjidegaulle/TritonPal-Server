@@ -164,8 +164,13 @@ function appendPre(message) {
 
 function showClasses(){
   var classes = [];
-  for(var q = 0; q < scraped_courses.length; q++){
+  if(scraped_courses.length == 1){
+    classes.push(scraped_courses[0].name);
+  }
+  else{
+    for(var q = 0; q < scraped_courses.length; q++){
     classes.push(scraped_courses[q].name + ", ");
+    }
   }
   alert("These are your classes: " + classes);
 }
