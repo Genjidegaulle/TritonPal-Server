@@ -18,3 +18,13 @@
 .jumbotron h2 {
  font-family: 'Overpass', sans-serif;
 }
+
+.step1 {
+  background-color: #1976D2;
+}
+.step2 {
+  background-color: #2196F3;
+}
+.step3 {
+  background-color: #BBDEFB;
+}
