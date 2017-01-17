@@ -178,7 +178,7 @@ function addEvent() {
 	jsonderulo = scraped_courses;
   var classes = [];
   for(var q = 0; q < jsonderulo.length; q++){
-    classes.push(jsonderulo[i].name + ", ");
+    classes.push(jsonderulo[q].name + ", ");
   }
   alert("These are your classes: " + classes);
 
