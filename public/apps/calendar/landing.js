@@ -162,6 +162,13 @@ function appendPre(message) {
 	pre.appendChild(textContent);
 }
 
+function showClasses(){
+  for(var i = 0; i < scraped_courses.length; i++){
+    console.log(scraped_courses[i].name);
+    document.write(scraped_courses[i].name);
+  }
+}
+
 /**
  * Test adding an event
  */
@@ -185,7 +192,6 @@ function addEvent() {
 
 	//Create event for each class
 	for (var i = 0; i < jsonderulo.length; i++){
-    console.log(jsonderulo[i].name);
     for (var k = 0; k < jsonderulo[i].sections.length; k++){
   		offset = 0;
   		recurrence = 10;
