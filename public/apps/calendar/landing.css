@@ -3,7 +3,6 @@
 .jumbotron {
  display: flex;
  align-items: center;
- height: 900px;
  text-shadow: 0.25px 0.25px 0.25px #000000;
  color: white;
  /*If we want to use an image
@@ -19,12 +18,15 @@
  font-family: 'Overpass', sans-serif;
 }
 
-.step1 {
+#step1 {
   background-color: #1976D2;
+  height: 600px;
 }
-.step2 {
+#step2 {
   background-color: #2196F3;
+  height: 600px;
 }
-.step3 {
+#step3 {
   background-color: #BBDEFB;
+  height: 600px;
 }
