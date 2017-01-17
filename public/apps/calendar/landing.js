@@ -185,6 +185,7 @@ function addEvent() {
 
 	//Create event for each class
 	for (var i = 0; i < jsonderulo.length; i++){
+    appendPre(jsonderulo[i].name);
     for (var k = 0; k < jsonderulo[i].sections.length; k++){
   		offset = 0;
   		recurrence = 10;
