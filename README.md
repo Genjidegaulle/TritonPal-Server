@@ -1,7 +1,7 @@
 # TritonPal-Server
 Server side of the TritonPal Chrome Extension
 
-Website here: <a href="https://tritonpal.herokuapp.com/"></a> 
+<a href="https://tritonpal.herokuapp.com/">Website Here</a> 
 
 TritonPal is intended for UCSD students to transfer their scheduled classes from WebReg to a Google Calendar of their choice!
 
