@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Overpass|Roboto:900|Source+Sans+Pro:700');
 
 .jumbotron {
+ width: 98.9%;
  align-items: center;
  text-shadow: 0.25px 0.25px 0.25px #000000;
  color: white !important;
