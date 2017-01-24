@@ -62,12 +62,12 @@ html {
     font-family: 'Roboto', sans-serif;
 }
 
-footer.foot {
+footer.page-footer {
     margin-top: 0px;
     padding-top: 0px;
     background-color: #f5f5f5;
 }
 
-footer.foot a {
+footer.page-footer a {
     color: #bdbdbd;
 }
