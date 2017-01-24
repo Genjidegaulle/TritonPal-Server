@@ -95,6 +95,17 @@ function handleAuthClick(event) {
 	return false;
 }
 
+
+function listCalendars() {
+		console.log('before req');
+		var request = gapi.client.calendar.calendarList.list();
+		console.log('before exec');
+		request.execute(function(resp) {
+			for(var i = 0; i < resp.items.length; i++)
+ 				console.log(resp.items[i].summary + '\n');
+			});
+}
+
 /**
  * Load Google Calendar client library. List upcoming events
  * once client library is loaded.
