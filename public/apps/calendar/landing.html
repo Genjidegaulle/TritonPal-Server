@@ -2,20 +2,10 @@
 <head>
 
 	<script src="landing.js">
-			var landing = landing.js;
-			var classes = [];
-			console.log("does this happen");
-			for(var i = 0; i < jsonderulo.length; i++){
-				classes.push(jsonderulo[i].name);
-			}
-			document.write(classes);
 	</script>
 
   <!-- Google API -->
   <script src="https://apis.google.com/js/client.js?onload=checkAuth"></script>
-
-    <!-- Google API -->
-    <script src="https://apis.google.com/js/client.js?onload=checkAuth"></script>
 
   <!-- Own stylesheet -->
   <link rel="stylesheet" type="text/css" href="landing.css">
@@ -76,7 +66,7 @@
 		</td>
 
 		<td>
-
+			<button id="show-classes" onclick="showClasses()"> Show your classes</button>
 			<button id="authorize-button" onclick="addEvent()"> Add classes to Calendar</button>
 		</td>
 	</tr>
