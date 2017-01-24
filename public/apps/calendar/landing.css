@@ -34,7 +34,22 @@
   text-align: center;
   position: relative;
 }
-#inner {
+
+#inner1 {
+	width: auto;
+	height: auto;
+    margin: 10% 40%;
+    padding: 20px;
+    position: absolute;
+}
+#inner2 {
+	width: auto;
+	height: auto;
+    margin: 9% 40%;
+    padding: 20px;
+    position: absolute;
+}
+#inner3 {
 	width: auto;
 	height: auto;
     margin: 10% 40%;
