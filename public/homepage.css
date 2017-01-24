@@ -1,0 +1,63 @@
+/*!
+ * Start Bootstrap - Landing Page Bootstrap Theme (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+@import url("https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300");
+@import url("https://fonts.googleapis.com/css?family=Muli:300");
+@import url("https://fonts.googleapis.com/css?family=Pacifico");
+ @import url('https://fonts.googleapis.com/css?family=Overpass|Roboto:900|Source+Sans+Pro:700');
+#hover{
+    -webkit-animation: mover 2s infinite  alternate;
+    animation: mover 2s infinite  alternate;
+    align: middle;
+}
+
+@-webkit-keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+}
+@keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+}
+
+html {
+  background-color: #1972d2;
+}
+
+#wrapper {
+  position: absolute;
+  margin: 10% 39%;
+}
+
+#innernavbar {
+  width: 1000px;
+  height: 50px;
+  position: relative;
+  margin: 0 auto;
+}
+.navbar-default {
+  /** Navbar colors **/
+  background-color: #fff;
+  border-color: #fff;
+}
+
+.navbar-font{
+    font-family: "Muli", sans-serif;
+    font-weight: 300;
+}
+
+.navbar a {
+    color: #2d2d2d!important;
+}
+
+.navbar a:hover {
+    color: #FCC11B!important;
+}
+
+.navbar-topleft{
+    padding-top: 18px;
+    font-size: 20px !important;
+    font-family: 'Roboto', sans-serif;
+}
