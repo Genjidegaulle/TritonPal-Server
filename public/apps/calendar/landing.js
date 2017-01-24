@@ -109,7 +109,6 @@ function listCalendars() {
 	var request = gapi.client.calendar.calendarList.list();
 	console.log('before exec');
 	request.execute(function(resp) {
-			console.log('ayyy');
 			appendPre('results:\n');
 			for(var i = 0; i < resp.items.length; i++)
 			 appendPre(resp.items[i].summary + '\n');
@@ -167,7 +166,7 @@ function showClasses(){
   for(var q = 0; q < scraped_courses.length; q++){
   classes.push(scraped_courses[q].name);
   }
-  alert("These are your classes: " + classes);
+  alert("These are your classes: " + classes + " ");
 }
 
 /**
