@@ -3,17 +3,16 @@
 .jumbotron {
  align-items: center;
  text-shadow: 0.25px 0.25px 0.25px #000000;
- color: white;
+ color: white !important;
  /*If we want to use an image
  background-size: cover; */
 }
 
 .jumbotron h1 {
  font-family: 'Roboto', sans-serif;
- color:white;
 }
 
-.jumbotron h2 {
+.jumbotron h2, h3, h4 {
  font-family: 'Overpass', sans-serif;
 }
 
