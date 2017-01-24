@@ -26,14 +26,15 @@
     <div id="step1">
     	<div id="inner1">
 	      <h1> Step 1: </h1>
-	      <h2> Authorize Email </h2>
-			<span>Authorize access to Google Calendar API</span>
+	      <h2> Authorize Access </h2>
+        <br>
+  			<p>So we can actually add events!</p>
 			<br>
 			<br>
 
 			<div id='authorize-div'>
 				<!--Button for the user to click too initiate auth sequence -->
-				<button id="authorize-button" onclick="handleAuthClick(event)">
+				<button id="authorize-button" class="authbutton" onclick="handleAuthClick(event)">
 					Authorize
 				</button>
 			</div>
@@ -43,6 +44,7 @@
     	<div id="inner2">
 	      <h1> Step 2: </h1>
 	      <h2> Select Calendar </h2>
+        <br>
 		  <table border="1" align="center">
 			<th>THESE ARE YOUR CALENDARS YO</th>
 			<tr><td>THIS IS YOUR FIRST ONE</td></tr>
@@ -55,7 +57,9 @@
     	<div id="inner3">
 	      <h1> Step 3: </h1>
 	      <h2> Verify and Add </h2>
-		  <button id="button" onclick="addEvent()"> Add </button>
+        <br>
+
+		  <button class="addbutton" onclick="addEvent()"> Add </button>
 		</div>
     </div>
   </div>
