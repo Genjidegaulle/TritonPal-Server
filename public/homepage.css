@@ -51,8 +51,8 @@ html {
 }
 
 #innernavbar {
-  width: 1000px;
-  height: 50px;
+  width: 65%;
+  height: 9%;
   position: relative;
   margin: 0 auto;
 }
@@ -81,3 +81,6 @@ html {
     font-family: 'Roboto', sans-serif;
 }
 
+a {
+  color: #FCC11B!important;
+}
