@@ -1,0 +1,64 @@
+<html>
+<head>
+
+	<script src="landing.js">
+	</script>
+
+  <!-- Google API -->
+  <script src="https://apis.google.com/js/client.js?onload=checkAuth"></script>
+
+  <!-- Own stylesheet -->
+  <link rel="stylesheet" type="text/css" href="landing.css">
+
+  <!-- Bootstrap -->
+	<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Overpass|Roboto:900|Source+Sans+Pro:700" rel="stylesheet">
+
+</head>
+<body>
+  <div class="jumbotron">
+        <div class="row text-center">
+    <div id="step1">
+    	<div id="inner1">
+	      <h1> Step 1: </h1>
+	      <h2> Authorize Email </h2>
+			<span>Authorize access to Google Calendar API</span>
+			<br>
+			<br>
+
+			<div id='authorize-div'>
+				<!--Button for the user to click too initiate auth sequence -->
+				<button id="authorize-button" onclick="handleAuthClick(event)">
+					Authorize
+				</button>
+			</div>
+		</div>
+	</div>
+    <div id="step2">
+    	<div id="inner2">
+	      <h1> Step 2: </h1>
+	      <h2> Select Calendar </h2>
+		  <table border="1" align="center">
+			<th>THESE ARE YOUR CALENDARS YO</th>
+			<tr><td>THIS IS YOUR FIRST ONE</td></tr>
+			<tr> <td>AND YOUR SECOND</td></tr>
+			<tr><td>AND YOUR LAST ONE </td></tr>
+		  </table>
+		</div>
+    </div>
+    <div id="step3">
+    	<div id="inner3">
+	      <h1> Step 3: </h1>
+	      <h2> Verify and Add </h2>
+		  <button id="button" onclick="addEvent()"> Add </button>
+		</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
