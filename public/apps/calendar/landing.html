@@ -24,49 +24,38 @@
   <div class="jumbotron">
         <div class="row text-center">
     <div id="step1">
-      <h1> Step 1: </h2>
-      <h2> Authorize Email </h2>
-      <h4> Entered email: ________ </h4>
-    </div>
+    	<div id="inner">
+	      <h1> Step 1: </h1>
+	      <h2> Authorize Email </h2>
+	      <h4> Entered email: ________ </h4>
+			<span>Authorize access to Google Calendar API</span>
+			<!--Button for the user to click too initiate auth sequence -->
+			<button id="authorize-button" onclick="handleAuthClick(event)">
+				Authorize
+			</button>
+		</div>
+	</div>
     <div id="step2">
-      <h1> Step 2: </h1>
-      <h2> Select Calendar </h2>
+    	<div id="inner">
+	      <h1> Step 2: </h1>
+	      <h2> Select Calendar </h2>
+		  <table border="1" align="center">
+			<th>THESE ARE YOUR CALENDARS YO</th>
+			<tr><td>THIS IS YOUR FIRST ONE</td></tr>
+			<tr> <td>AND YOUR SECOND</td></tr>
+			<tr><td>AND YOUR LAST ONE </td></tr>
+		  </table>
+		</div>
     </div>
     <div id="step3">
-      <h1> Step 3: </h1>
-      <h2> Verify and Add </h2>
-	    <button id="show-classes" onclick="showClasses()"> Show your classes</button>
+    	<div id="inner">
+	      <h1> Step 3: </h1>
+	      <h2> Verify and Add </h2>
+		  <button id="show-classes" onclick="showClasses()"> Show your classes</button>
+		  <button id="authorize-button" onclick="addEvent()"> Add classes to Calendar</button>
+		</div>
     </div>
   </div>
 </div>
-<table border="1" style="table-layout:fixed; width:100%; height:100%;">
-
-	<tr>
-
-		<td>
-					<div id="authorize-div" style="display:none">
-						<span>Authorize access to Google Calendar API</span>
-						<!--Button for the user to click too initiate auth sequence -->
-						<button id="authorize-button" onclick="handleAuthClick(event)">
-							Authorize
-						</button>
-					</div>
-
-					<pre id="output"></pre>
-		</td>
-		<td>
-			<table border="1">
-				<th>THESE ARE YOUR CALENDARS YO</th>
-				<tr><td>THIS IS YOUR FIRST ONE</td></tr>
-				<tr> <td>AND YOUR SECOND</td></tr>
-				<tr><td>AND YOUR LAST ONE </td></tr>
-			</table>
-		</td>
-
-		<td>
-			<button id="authorize-button" onclick="addEvent()"> Add classes to Calendar</button>
-		</td>
-	</tr>
-</table>
 </body>
 </html>

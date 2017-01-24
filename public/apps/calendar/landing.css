@@ -19,12 +19,25 @@
 #step1 {
   background-color: #1976D2;
   height: 600px;
+  text-align: center;
+  position: relative;
 }
 #step2 {
   background-color: #2196F3;
   height: 600px;
+  text-align: center;
+  position: relative;
 }
 #step3 {
   background-color: #BBDEFB;
   height: 600px;
+  text-align: center;
+  position: relative;
+}
+#inner {
+	width: auto;
+	height: auto;
+    margin: 10% 40%;
+    padding: 20px;
+    position: absolute;
 }

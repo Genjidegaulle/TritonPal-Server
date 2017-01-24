@@ -166,7 +166,7 @@ function showClasses(){
   for(var q = 0; q < scraped_courses.length; q++){
   classes.push(scraped_courses[q].name);
   }
-  alert("These are your classes: " + classes + " ");
+  alert("These are your classes: " + classes);
 }
 
 /**
