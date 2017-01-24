@@ -2,9 +2,10 @@
 
 .jumbotron {
  width: 98.9%;
- align-items: center;
- text-shadow: 0.25px 0.25px 0.25px #000000;
+ height: 114%;
+ /*text-shadow: 0.25px 0.25px 0.25px #000000;*/
  color: white !important;
+ margin-top: -50px;
  /*If we want to use an image
  background-size: cover; */
 }
@@ -19,23 +20,21 @@
 
 #step1 {
   background-color: #1976D2;
-  height: 600px;
+  height: 100%;
   text-align: center;
-  position: relative;
 }
 #step2 {
   background-color: #2196F3;
-  height: 600px;
+  height: 100%;
   text-align: center;
-  position: relative;
 }
 #step3 {
   background-color: #BBDEFB;
-  height: 600px;
+  height: 100%;
   text-align: center;
-  position: relative;
 }
 
+/* Inner divs center */
 #inner1 {
 	width: auto;
 	height: auto;
