@@ -100,9 +100,33 @@ function listCalendars() {
 		console.log('before req');
 		var request = gapi.client.calendar.calendarList.list();
 		console.log('before exec');
+
+		var user_calendars_div = document.getElementById('user_calendars');
+
 		request.execute(function(resp) {
-			for(var i = 0; i < resp.items.length; i++)
+			for(var i = 0; i < resp.items.length; i++) {
  				console.log(resp.items[i].summary + '\n');
+
+				var li_container = document.createElement('li');
+				var label = document.createElement('label');
+				var input = document.createElement('input');
+				var check = document.createElement('div');
+
+				check.className += ' check';
+
+				label.htmlFor = i + '-option';
+				label.innerText = resp.items[i].summary;
+
+				input.type = 'radio';
+				input.id = i+'-option';
+				input.name='selector';
+
+				li_container.appendChild(input);
+				li_container.appendChild(label);
+				li_container.appendChild(check);
+
+				user_calendars_dov.appendChild(li_container);
+			}
 			});
 }
 
