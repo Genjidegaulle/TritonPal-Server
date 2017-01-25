@@ -6,7 +6,7 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300");
 @import url("https://fonts.googleapis.com/css?family=Muli:300");
 @import url("https://fonts.googleapis.com/css?family=Pacifico");
- @import url('https://fonts.googleapis.com/css?family=Overpass|Roboto:900|Source+Sans+Pro:700');
+@import url('https://fonts.googleapis.com/css?family=Overpass|Roboto:900|Source+Sans+Pro:700');
 #hover{
     -webkit-animation: mover 2s infinite  alternate;
     animation: mover 2s infinite  alternate;
@@ -26,14 +26,33 @@ html {
   background-color: #1972d2;
 }
 
+#footer {
+  position: absolute;
+  background-color: white;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1px;
+  vertical-align: middle;
+  position: fixed;
+}
+
+#footer p {
+  margin: 1%;
+  padding-left: 18%;
+  font-family: "Overpass", sans-serif;
+  font-size: 12px;
+  color: #2d2d2d!important;
+}
+
 #wrapper {
   position: absolute;
-  margin: 10% 39%;
+  margin: 13% 40%;
 }
 
 #innernavbar {
-  width: 1000px;
-  height: 50px;
+  width: 65%;
+  height: 9%;
   position: relative;
   margin: 0 auto;
 }
@@ -62,12 +81,6 @@ html {
     font-family: 'Roboto', sans-serif;
 }
 
-footer.foot {
-    margin-top: 0px;
-    padding-top: 0px;
-    background-color: #f5f5f5;
-}
-
-footer.foot a {
-    color: #bdbdbd;
+a {
+  color: #FCC11B!important;
 }

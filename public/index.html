@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <title>Triton Pal</title>
   <!-- Own stylesheet -->
   <link rel="stylesheet" type="text/css" href="homepage.css">
 
   <!-- Bootstrap -->
-	<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-	<script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
   <!-- Google Fonts -->
@@ -15,18 +16,16 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://use.fontawesome.com/3f2372c12f.js"></script>
 </head>
 <body>
-  <header>
+
       <!-- Navigation -->
       <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
-          <div class="container topnav" id="innernavbar">
+          <div class="container-fluid" id="innernavbar">
               <!-- Brand and toggle get grouped for better mobile display -->
               <div class="navbar-header">
-                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                       <span class="sr-only">Toggle navigation</span>
                       <span class="icon-bar"></span>
                       <span class="icon-bar"></span>
@@ -37,31 +36,30 @@
                   </a>
               </div>
               <!-- Collect the nav links, forms, and other content for toggling -->
-              <div class="collapse navbar-collapse">
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                   <ul class="nav navbar-nav navbar-right navbar-font">
                       <li>
-                          <a href="https://chrome.google.com/webstore/detail/tritonpal/akcheoablgcgheboohdapldmfmkifioc?hl=en-US&gl=US">DOWNLOAD</a>
+                          <a href="https://chrome.google.com/webstore/detail/tritonpal/akcheoablgcgheboohdapldmfmkifioc?hl=en-US&gl=US">
+                          DOWNLOAD</a>
                       </li>
                       <li>
                           <a href="https://github.com/Genjidegaulle/TritonPal-Chrome-Extension.git">GITHUB</a>
                       </li>
-                      <li>
                   </ul>
               </div>
               <!-- /.navbar-collapse -->
           </div>
           <!-- /.container -->
       </nav>
-  </header>
-    <footer class="foot">
-      <div class="container grey-text">© 2016 Copyright Ai-Master.com All rights reserved. Owned by TransEpoch, Inc. 
-      </div>
-  </footer>
-  <main>
     <div id="wrapper">
       <img id="hover" src="img/logo.png">
       <img src="img/shadow.png">
     </div>
-  </main>
+
+    <div id="footer">
+      <p>       <i class="fa fa-code" aria-hidden="true"></i>
+        Created by <a href="https://github.com/asg017">Alex Garcia</a>, <a href="https://github.com/Genjidegaulle/">David Liau</a>, and <a href="https://github.com/xmichelleyang">Michelle Yang</a>. 
+      <p>
+    </div>  
 </body>
 </html>

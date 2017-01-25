@@ -18,6 +18,12 @@
  font-family: 'Overpass', sans-serif;
 }
 
+p{
+  font-family: 'Overpass', sans-serif;
+  font-size: 15px !important;
+  weight: lighter;
+}
+
 #step1 {
   background-color: #1976D2;
   height: 100%;
@@ -38,28 +44,62 @@
 #inner1 {
 	width: auto;
 	height: auto;
-    margin: 10% 40%;
-    padding: 20px;
-    position: absolute;
+  margin: 10% 40%;
+  padding: 20px;
+  position: absolute;
 }
 #inner2 {
 	width: auto;
 	height: auto;
-    margin: 9% 40%;
-    padding: 20px;
-    position: absolute;
+  margin: 9% 40%;
+  padding: 20px;
+  position: absolute;
 }
 #inner3 {
 	width: auto;
 	height: auto;
-    margin: 10% 40%;
-    padding: 20px;
-    position: absolute;
+  margin: 10% 40%;
+  padding: 20px;
+  position: absolute;
 }
 
-#button {
+.authbutton {
   padding: 10px;
   border-style: solid;
   border-color: white;
   border-width: 3px;
   background-color: Transparent;
+  width: 100px;
+  font-family: sans-serif;
+
+}
+
+.addbutton {
+  padding: 10px;
+  border-style: solid;
+  border-color: white;
+  border-width: 3px;
+  background-color: Transparent;
+  width: 100px;
+  font-family: sans-serif;
+}
+
+
+.authbutton:hover {
+  background-color: white;
+  color: #1976D2;
+}
+.addbutton:hover {
+  background-color: white;
+  color: #BBDEFB;
+}
+
+table, td{
+  color: white;
+  border: 3px solid white;
+}
+
+th{
+  background-color: white;
+  color: #2196F3;
+}
