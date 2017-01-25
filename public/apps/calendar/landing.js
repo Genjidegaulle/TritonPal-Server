@@ -125,7 +125,7 @@ function listCalendars() {
 				li_container.appendChild(label);
 				li_container.appendChild(check);
 
-				user_calendars_dov.appendChild(li_container);
+				user_calendars_div.appendChild(li_container);
 			}
 			});
 }
