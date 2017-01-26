@@ -1,0 +1,46 @@
+<html>
+<head>
+
+		<script src="./landing.js"></script>
+
+    <script src="https://apis.google.com/js/client.js?onload=checkAuth"></script>
+		<link rel="stylesheet" type="text/css" href="./landing.css">
+		<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+
+</head>
+<body>
+
+
+	
+
+
+					<div id="authorize-div" style="display:none">
+								<!-- Modal -->
+								<div id="myModal" class="modal show" role="dialog">
+									<div class="modal-dialog">
+
+										<!-- Modal content-->
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal">&times;</button>
+												<h4 class="modal-title">Authorize TritonPal to your Google Calendar</h4>
+											</div>
+											<div class="modal-body">
+												<p>Check our <a href="/privacy.html">Privacy Policy</a> for more information.</p>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-primary" id="authorize-button" onclick="handleAuthClick(event)" data-dismiss="modal">Authorize</button>
+												<button type="button" class="btn btn-default" id="authorize-button" data-dismiss="modal">Cancel</button>
+											</div>
+										</div>
+
+									</div>
+								</div>
+
+
+					</div>
+
+					<pre id="output"></pre>
+			<button id="authorize-button" onclick="addEvent()"> Add classes to Calendar</button>
+</body>
+</html>
