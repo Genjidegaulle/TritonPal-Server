@@ -1,0 +1,31 @@
+[{"name":"COGS 100",
+  "sections":[{
+  "type":"discussion",
+  "sectionID":"890856",
+  "section":"A01", 
+  "days":"M",
+  "time":"2:00p-2:50p",
+  "location":"PCYNH 120",
+  "teacher":"Kirsh, David Joel",
+  "openSeats":0,
+  "seatLimit":50,
+  "waitlistSize":5,
+  "isEnrollable":true}]},
+
+ {"name":"CSE 30",
+  "sections":[{
+  "type":"lecture",
+  "sectionID":"894541",
+  "section":"A00",
+  "days":"TuTh",
+  "time":"12:30p-1:50p",
+  "location":"SOLIS 107",
+  "teacher":"Ord, Richard",
+  "openSeats":0,
+  "seatLimit":300,
+  "waitlistSize":16,
+  "isEnrollable":true}]},
+
+
+{"name":"COGS 107B",
+  "sections":[{"type":"discussion","sectionID":"901004","section":"B06","days":"F","time":"12:00p-12:50p","location":"CSB 005","teacher":"Nitz, Douglas A.","openSeats":0,"seatLimit":51,"waitlistSize":0,"isEnrollable":true}]},{"name":"COGS 101B","sections":[{"type":"discussion","sectionID":"890858","section":"A01","days":"M","time":"9:00a-9:50a","location":"CSB 004","teacher":"Barrera, Steven James","openSeats":0,"seatLimit":56,"waitlistSize":6,"isEnrollable":true}]}]

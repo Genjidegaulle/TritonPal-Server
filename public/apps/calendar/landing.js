@@ -98,7 +98,7 @@ function handleAuthClick(event) {
 
 function listCalendars() {
 		console.log('before req');
-		var request = gapi.client.calendar.calendarList.list({maxResults:4, minAccessRole:'writer'});
+		var request = gapi.client.calendar.calendarList.list({maxResults:3, minAccessRole:'writer'});
 		console.log('before exec');
 
 		var user_calendars_div = document.getElementById('user_calendars');
