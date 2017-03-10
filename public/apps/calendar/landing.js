@@ -212,7 +212,7 @@ function addEvent() {
   		}
 
   		//TODO: Array index subject to change
-  		startDate = SYEAR + "-" + SMONTH[1] + "-" + (SDAY[1] + offset);
+  		startDate = SYEAR + "-" + SMONTH[2] + "-" + (SDAY[2] + offset);
   		console.log("THE START DATE FOR " + jsonderulo[i].name + " IS " + jsonderulo[i].sections[k].days + " w OFFSET " + offset);
 
   		//Get Start and end time
