@@ -46,18 +46,24 @@ p{
   height: 50%;
   margin: 0 auto;
   padding-top: 20%;
+  border-style: solid;
+border-width: 5px;
 }
 #inner2 {
   width: 50%;
   height: 50%;
   margin: 0 auto;
   padding-top: 20%;
+  border-style: solid;
+  border-width: 5px;
 }
 #inner3 {
   width: 50%;
   height: 50%;
   margin: 0 auto;
   padding-top: 20%;
+  border-style: solid;
+border-width: 5px;
 }
 
 .authbutton {
@@ -85,11 +91,11 @@ p{
 }
 .authbutton:hover {
   background-color: white;
-  color: #1976D2;
+  color: #1976D2 !important;
 }
 .addbutton:hover {
   background-color: white;
-  color: #BBDEFB;
+  color: #BBDEFB !important;
 }
 
 table, td {
@@ -111,15 +117,12 @@ ul {
   width: 50%;
   height: 50%;
   margin: 0 auto;
-}
-.container ul{
-	margin: 0;
-  list-style: none;
-  height: 100%;
-  width: 100%;
-	padding: 0;
-}
+  border-style: solid;
+  border-width: 5px;
 
+    display: flex;
+    justify-content: center;
+}
 
 ul li{
 	color: #FFF;
@@ -129,6 +132,11 @@ ul li{
 	width: 300px;
 	height: 80px;
 	border-bottom: 1px solid #FFF;
+
+
+  border-style: solid;
+  border-width: 5px;
+
 }
 
 ul li input[type=radio]{
