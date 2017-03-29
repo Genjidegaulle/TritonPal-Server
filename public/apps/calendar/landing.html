@@ -22,49 +22,50 @@
 </head>
 <body>
   <div class="jumbotron">
-        <div class="row text-center">
-    <div id="step1">
-    	<div id="inner1">
-	      <h1> Step 1: </h1>
-	      <h2> Authorize Access </h2>
-        <br>
-  			<p>So we can actually add events!</p>
-			<br>
-			<br>
+    <div class="row text-center">
+      <div id="step1">
+      	<div id="inner1">
+  	      <h1> Step 1: </h1>
+  	      <h2> Authorize Access </h2>
+          <br>
+    			<p>So we can actually add events!</p>
+    			<br>
+    			<br>
 
-			<div id='authorize-div'>
-				<!--Button for the user to click too initiate auth sequence -->
-				<button id="authorize-button" class="authbutton" onclick="handleAuthClick(event)">
-					Authorize
-				</button>
-			</div>
-		</div>
-	</div>
-    <div id="step2">
-    	<div id="inner2">
-	      <h1> Step 2: </h1>
-	      <h2> Select Calendar </h2>
-				
-				<ul id='user_calendars'>
-					<li>
-						<input type="radio" id="prim-option" name="selector">
-						<label for="prim-option">Primary Calendar</label>
-						<div class="check"></div>
-					</li>
-				</ul>
+    			<div id='authorize-div'>
+    				<!--Button for the user to click too initiate auth sequence -->
+    				<button id="authorize-button" class="authbutton" onclick="handleAuthClick(event)">
+    					Authorize
+    				</button>
+    			</div>
+  		  </div>
+  	  </div>
 
-		</div>
-    </div>
-    <div id="step3">
-    	<div id="inner3">
-	      <h1> Step 3: </h1>
-	      <h2> Verify and Add </h2>
-        <br>
+      <div id="step2">
+      	<div id="inner2">
+  	      <h1> Step 2: </h1>
+  	      <h2> Select Calendar </h2>
 
-		  <button class="addbutton" onclick="addEvent()"> Add </button>
-		</div>
+  				<ul id='user_calendars'>
+  					<li>
+  						<input type="radio" id="prim-option" name="selector">
+  						<label for="prim-option">Primary Calendar</label>
+  						<div class="check"></div>
+  					</li>
+  				</ul>
+  		  </div>
+      </div>
+
+      <div id="step3">
+      	<div id="inner3">
+  	      <h1> Step 3: </h1>
+  	      <h2> Verify and Add </h2>
+          <br>
+
+  		    <button class="addbutton" onclick="addEvent()"> Add </button>
+  		  </div>
+      </div>
     </div>
   </div>
-</div>
 </body>
 </html>

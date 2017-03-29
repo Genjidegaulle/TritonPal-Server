@@ -42,25 +42,22 @@ p{
 
 /* Inner divs center */
 #inner1 {
-	width: auto;
-	height: auto;
-  margin: 10% 40%;
-  padding: 20px;
-  position: absolute;
+  width: 50%;
+  height: 50%;
+  margin: 0 auto;
+  padding-top: 20%;
 }
 #inner2 {
-	width: auto;
-	height: auto;
-  margin: 9% 40%;
-  padding: 20px;
-  position: absolute;
+  width: 50%;
+  height: 50%;
+  margin: 0 auto;
+  padding-top: 20%;
 }
 #inner3 {
-	width: auto;
-	height: auto;
-  margin: 10% 40%;
-  padding: 20px;
-  position: absolute;
+  width: 50%;
+  height: 50%;
+  margin: 0 auto;
+  padding-top: 20%;
 }
 
 .authbutton {
@@ -71,6 +68,7 @@ p{
   background-color: Transparent;
   width: 100px;
   font-family: sans-serif;
+  color: white !important;
 
 }
 
@@ -82,9 +80,9 @@ p{
   background-color: Transparent;
   width: 100px;
   font-family: sans-serif;
+  color: white !important;
+
 }
-
-
 .authbutton:hover {
   background-color: white;
   color: #1976D2;
@@ -94,12 +92,12 @@ p{
   color: #BBDEFB;
 }
 
-table, td{
+table, td {
   color: white;
   border: 3px solid white;
 }
 
-th{
+th {
   background-color: white;
   color: #2196F3;
 }
@@ -109,12 +107,17 @@ th{
 /*ALEX*/
 
 
+ul {
+  width: 50%;
+  height: 50%;
+  margin: 0 auto;
+}
 .container ul{
-	  list-style: none;
-		  height: 100%;
-			  width: 100%;
-				  margin: 0;
-					  padding: 0;
+	margin: 0;
+  list-style: none;
+  height: 100%;
+  width: 100%;
+	padding: 0;
 }
 
 
@@ -123,14 +126,17 @@ ul li{
 	display: block;
 	position: relative;
 	float: left;
-	width: 400px;
+	width: 300px;
 	height: 80px;
-	border-bottom: 1px dashed #FFF;
+	border-bottom: 1px solid #FFF;
 }
 
 ul li input[type=radio]{
-	  position: absolute;
-		  visibility: hidden;
+  position: absolute;
+	visibility: hidden;
+  width: 20px;
+  height: 20px;
+  border-width: 2px;
 }
 
 ul li label{
@@ -144,6 +150,8 @@ ul li label{
 	z-index: 9;
 	cursor: pointer;
 	-webkit-transition: all 0.25s linear;
+  font-family: sans-serif;
+  text-align: center;
 }
 
 ul li:hover label{
@@ -182,6 +190,7 @@ ul li .check::before {
 	-webkit-transition: background 0.25s linear;
 }
 
+.cl
 input[type=radio]:checked ~ .check {
 	border: 5px solid white;
 }
@@ -193,8 +202,3 @@ input[type=radio]:checked ~ .check::before{
 input[type=radio]:checked ~ label{
 	color: white;
 }
-
-
-
-
-
