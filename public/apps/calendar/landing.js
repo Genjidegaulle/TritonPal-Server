@@ -242,8 +242,6 @@ function addEvent() {
   				});
 
   		request.execute(function(exevent) {
-
-				alert('wooo done');
 			});
   	}
   }
