@@ -98,11 +98,35 @@ function handleAuthClick(event) {
 
 function listCalendars() {
 		console.log('before req');
-		var request = gapi.client.calendar.calendarList.list();
+		var request = gapi.client.calendar.calendarList.list({maxResults:3, minAccessRole:'writer'});
 		console.log('before exec');
+
+		var user_calendars_div = document.getElementById('user_calendars');
+
 		request.execute(function(resp) {
-			for(var i = 0; i < resp.items.length; i++)
+			for(var i = 0; i < resp.items.length; i++) {
  				console.log(resp.items[i].summary + '\n');
+
+				var li_container = document.createElement('li');
+				var label = document.createElement('label');
+				var input = document.createElement('input');
+				var check = document.createElement('div');
+
+				check.className += ' check';
+
+				label.htmlFor = i + '-option';
+				label.innerText = resp.items[i].summary;
+
+				input.type = 'radio';
+				input.id = i+'-option';
+				input.name='selector';
+
+				li_container.appendChild(input);
+				li_container.appendChild(label);
+				li_container.appendChild(check);
+
+				user_calendars_div.appendChild(li_container);
+			}
 			});
 }
 
@@ -188,7 +212,7 @@ function addEvent() {
   		}
 
   		//TODO: Array index subject to change
-  		startDate = SYEAR + "-" + SMONTH[1] + "-" + (SDAY[1] + offset);
+  		startDate = SYEAR + "-" + SMONTH[2] + "-" + (SDAY[2] + offset);
   		console.log("THE START DATE FOR " + jsonderulo[i].name + " IS " + jsonderulo[i].sections[k].days + " w OFFSET " + offset);
 
   		//Get Start and end time
