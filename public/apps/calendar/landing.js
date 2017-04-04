@@ -167,6 +167,9 @@ function addEvent() {
 	//To fix "MWF" formatting
 	var days;
 
+  //Specify class type
+  var classtype;
+
 	//To get start/end times
 	var startTime, endTime, times;
 
@@ -215,6 +218,21 @@ function addEvent() {
   				//TODO: Handle later?
   		}
 
+      // Append correct class type onto name
+      var type = jsonderulo[i].sections[k].type;
+      if (type == "discussion"){
+        classtype = " (DI)";
+      }
+      else if (type == "lecture") {
+        classtype = " (LE)";
+      }
+      else if (type == "lab") {
+        classtype = "(LA)";
+      }
+      else {
+        classtype = "";
+      }
+
   		//TODO: Array index subject to change
   		startDate = SYEAR + "-" + SMONTH[2] + "-" + (SDAY[2] + offset);
   		console.log("THE START DATE FOR " + jsonderulo[i].name + " IS " + jsonderulo[i].sections[k].days + " w OFFSET " + offset);
@@ -247,7 +265,7 @@ function addEvent() {
         console.log("THE START TIME IS " + startTime);
   		//create event
   		var exevent = {
-  			"summary": jsonderulo[i].name,
+  			"summary": jsonderulo[i].name + classtype,
   			"start": {
   				"dateTime": startDate + "T" + startTime + ":00",
   				"timeZone": "America/Los_Angeles"
@@ -257,6 +275,7 @@ function addEvent() {
   				//"dateTime": "2016-12-27T09:00:00-08:00",
   				"timeZone": "America/Los_Angeles"
   			},
+        "location" : jsonderulo[i].sections[k].location,
   			"recurrence": [
   				"RRULE:FREQ=WEEKLY;COUNT=" + recurrence + ";BYDAY=" + days,
   			]
