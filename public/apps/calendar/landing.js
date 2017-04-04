@@ -269,4 +269,5 @@ function addEvent() {
 			});
   	}
   }
+  alert("Your classes have been successfully added!");
 }
