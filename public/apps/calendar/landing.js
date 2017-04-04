@@ -38,7 +38,6 @@ response.onload = function() {
 };
 
 response.onerror = function() {
-  alert("You do not have any classes!");
 };
 
 response.send();

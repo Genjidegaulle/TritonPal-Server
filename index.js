@@ -118,13 +118,23 @@ app.get('/socs', function(request, response){
 						else if(sec.type == "discussion"){
 							if(sec.sectionID != sectionID[i] && sec.sectionID != null){
 								result[i].sections.splice(j, 1);
-									j -= 1;
+								j -= 1;
 							}
 							else{
 								disTeach = sec.teacher;
 								disSec = sec.section;
 							}
-						// Removes all else
+						// Checks for all other event
+						}
+						else if(sec.type != "final"){
+							if(sec.sectionID != sectionID[i] && sec.sectionID != null){
+								result[i].sections.splice(j, 1);
+								j -= 1;
+							}
+							else{
+								disTeach = sec.teacher;
+								disSec = sec.section;
+							}
 						}
 						else{
 							result[i].sections.splice(j, 1);
