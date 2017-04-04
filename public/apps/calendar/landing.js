@@ -156,7 +156,7 @@ function addEvent() {
 	jsonderulo = scraped_courses;
 
   // Checking for errors
-  if(jsonderulo.length == null){
+  if(jsonderulo == null){
     alert("You do not have any classes. Please enter at least one class to add to your calendar.");
   }
 	/** VARIABLE CITY **/
