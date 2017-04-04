@@ -38,7 +38,6 @@ response.onload = function() {
 };
 
 response.onerror = function() {
-  alert("We were unable to reach the server. Please check your internet connection!");
 };
 
 response.send();
