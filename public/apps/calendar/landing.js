@@ -75,11 +75,13 @@ function handleAuthResult(authResult) {
 	if (authResult && !authResult.error) {
 		// Hide auth UI, then load client library.
 		authorizeDiv.style.display = 'none';
+    done.style.display = 'inline';
 		loadCalendarApi();
 	} else {
 		// Show auth UI, allowing the user to initiate authorization by
 		// clicking authorize button.
 		authorizeDiv.style.display = 'inline';
+    done.stye.display = 'none';
 	}
 }
 
