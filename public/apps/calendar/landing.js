@@ -229,6 +229,15 @@ function addEvent() {
       else if (type == "lab") {
         classtype = "(LA)";
       }
+      else if (type == "studio") {
+        classtype = " (ST)";
+      }
+      else if (type == "seminar") {
+        classtype = " (SE)";
+      }
+      else if (type == "independentStudy"){
+        classtype = " (IN)";
+      }
       else {
         classtype = "";
       }
