@@ -74,11 +74,13 @@ function handleAuthResult(authResult) {
 	if (authResult && !authResult.error) {
 		// Hide auth UI, then load client library.
 		authorizeDiv.style.display = 'none';
+    done.style.display = 'inline';
 		loadCalendarApi();
 	} else {
 		// Show auth UI, allowing the user to initiate authorization by
 		// clicking authorize button.
 		authorizeDiv.style.display = 'inline';
+    done.stye.display = 'none';
 	}
 }
 
@@ -227,6 +229,15 @@ function addEvent() {
       }
       else if (type == "lab") {
         classtype = "(LA)";
+      }
+      else if (type == "studio") {
+        classtype = " (ST)";
+      }
+      else if (type == "seminar") {
+        classtype = " (SE)";
+      }
+      else if (type == "independentStudy"){
+        classtype = " (IN)";
       }
       else {
         classtype = "";
