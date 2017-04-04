@@ -38,7 +38,7 @@ response.onload = function() {
 };
 
 response.onerror = function() {
-  console.log('There was an error!');
+  alert("You do not have any classes!");
 };
 
 response.send();
@@ -155,6 +155,10 @@ function addEvent() {
 	//Load in json
 	jsonderulo = scraped_courses;
 
+  // Checking for errors
+  if(jsonderulo.length == 0){
+    alert("You do not have any classes. Please enter at least one class to add to your calendar.");
+  }
 	/** VARIABLE CITY **/
 	//To fix startDate
 	var startDate;
