@@ -47,8 +47,8 @@ var SCOPES = ["https://www.googleapis.com/auth/calendar"];
 
 //For startDate
 var SYEAR = new Date().getFullYear();
-var SDAY = [22, 9, 3, 3, 7];
-var SMONTH = [9, 1, 4, 7, 8];
+var SMONTH = [7, 8, 9, 1, 3];
+var SDAY = [3, 7, 28, 8, 30];
 
 /**
  * Check if current user has authorized this application.
@@ -244,7 +244,27 @@ function addEvent() {
       }
 
   		//TODO: Array index subject to change
-  		startDate = SYEAR + "-" + SMONTH[2] + "-" + (SDAY[2] + offset);
+
+      // Get correct month
+      var d = new Date();
+      var month = g.getMonth();
+      var curr;
+      if (month == 7) { // Month is July --> Summer Session I
+        curr = 0;
+      }
+      else if (month == 8) { // Month is August --> Summer Session II
+        curr = 1;
+      }
+      else if (month >= 9 && month < 12) { // Month between September and December --> Fall
+        curr = 2;
+      }
+      else if(month >= 1 && month < 3)  { // Month between January and March --> Winter
+        curr = 4;
+      }
+      else {  // Month otherwise
+        curr = 5;
+      }
+  		startDate = SYEAR + "-" + SMONTH[curr] + "-" + (SDAY[curr] + offset);
   		console.log("THE START DATE FOR " + jsonderulo[i].name + " IS " + jsonderulo[i].sections[k].days + " w OFFSET " + offset);
 
   		//Get Start and end time
