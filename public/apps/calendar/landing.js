@@ -274,6 +274,8 @@ function addEvent() {
         curr = 4;
       }
 
+      console.log("The current month start is " + SMONTH[curr] + "because its " + quarter);
+
 
   		startDate = SYEAR + "-" + SMONTH[curr] + "-" + (SDAY[curr] + offset);
   		console.log("THE START DATE FOR " + jsonderulo[i].name + " IS " + jsonderulo[i].sections[k].days + " w OFFSET " + offset);
