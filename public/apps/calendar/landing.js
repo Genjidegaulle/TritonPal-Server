@@ -7,6 +7,8 @@ var splitUrl = currUrl.split('?');
 var fullUrl = "https://tritonpal.herokuapp.com/socs?" + splitUrl[1];
 var scraped_courses = null;
 
+
+
 function httpGet(method, url) {
   var xhr = new XMLHttpRequest();
   if ("withCredentials" in xhr) {
@@ -245,25 +247,34 @@ function addEvent() {
 
   		//TODO: Array index subject to change
 
-      // Get correct month
-      var d = new Date();
-      var month = g.getMonth();
+      // Get correct quarter
+      // 0 = SS1, 1 = SS2, 2 = Fall, 3 = Winter, 4 = Spring
+
+
+      var response = window.location.href;
+      console.log(response);
+      var quarterLen = "https://tritonpal.herokuapp.com/apps/calendar/landing.html?term=".length;
+      var quarter = response.substring(quarterLen, quarterLen + 2);
+      console.log(quarter);
       var curr;
-      if (month == 7) { // Month is July --> Summer Session I
+
+      if( quarter.localeCompare("S1")){
         curr = 0;
       }
-      else if (month == 8) { // Month is August --> Summer Session II
+      else if( quarter.localeCompare("S2")){
         curr = 1;
       }
-      else if (month >= 9 && month < 12) { // Month between September and December --> Fall
+      else if( quarter.localeCompare("FA")){
         curr = 2;
       }
-      else if(month >= 1 && month < 3)  { // Month between January and March --> Winter
+      else if( quarter.localeCompare("WI")){
+        curr = 3;
+      }
+      else if( quarter.localeCompare("SP")){
         curr = 4;
       }
-      else {  // Month otherwise
-        curr = 5;
-      }
+
+
   		startDate = SYEAR + "-" + SMONTH[curr] + "-" + (SDAY[curr] + offset);
   		console.log("THE START DATE FOR " + jsonderulo[i].name + " IS " + jsonderulo[i].sections[k].days + " w OFFSET " + offset);
 
