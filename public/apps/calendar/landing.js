@@ -259,23 +259,19 @@ function addEvent() {
       console.log(quarter);
       var curr;
 
-      if( quarter.localeCompare("S1")){
-        console.log("it's s1!! quarter said " + quarter);
-
+      if( quarter == "S1"){
         curr = 0;
       }
-      else if( quarter.localeCompare("S2")){
-        console.log("it's s2!! quarter said " + quarter);
-
+      else if( quarter == "S2"){
         curr = 1;
       }
-      else if( quarter.localeCompare("FA")){
+      else if( quarter == "FA"){
         curr = 2;
       }
-      else if( quarter.localeCompare("WI")){
+      else if( quarter == "WI"){
         curr = 3;
       }
-      else if( quarter.localeCompare("SP")){
+      else if( quarter == "SP"){
         curr = 4;
       }
 
