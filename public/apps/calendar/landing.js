@@ -255,15 +255,18 @@ function addEvent() {
       console.log(response);
       var quarterLen = "https://tritonpal.herokuapp.com/apps/calendar/landing.html?term=".length;
       var quarter = response.substring(quarterLen, quarterLen + 2);
-      //TEMP
-      quarter = "S1";
+
       console.log(quarter);
       var curr;
 
       if( quarter.localeCompare("S1")){
+        console.log("it's s1!! quarter said " + quarter);
+
         curr = 0;
       }
       else if( quarter.localeCompare("S2")){
+        console.log("it's s2!! quarter said " + quarter);
+
         curr = 1;
       }
       else if( quarter.localeCompare("FA")){
