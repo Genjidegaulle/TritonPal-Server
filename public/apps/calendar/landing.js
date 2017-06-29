@@ -255,6 +255,8 @@ function addEvent() {
       console.log(response);
       var quarterLen = "https://tritonpal.herokuapp.com/apps/calendar/landing.html?term=".length;
       var quarter = response.substring(quarterLen, quarterLen + 2);
+      //TEMP
+      quarter = "S1";
       console.log(quarter);
       var curr;
 
@@ -274,8 +276,8 @@ function addEvent() {
         curr = 4;
       }
 
-      console.log("The current month start is " + SMONTH[curr] + "because its " + quarter);
-
+      console.log("The current month start is " + SMONTH[curr] + "/" + SDAY[curr] + "because its " + quarter + 'and curr is ' + curr);
+      console.log("The next month is " + SMONTH[curr + 1]);
 
   		startDate = SYEAR + "-" + SMONTH[curr] + "-" + (SDAY[curr] + offset);
   		console.log("THE START DATE FOR " + jsonderulo[i].name + " IS " + jsonderulo[i].sections[k].days + " w OFFSET " + offset);
