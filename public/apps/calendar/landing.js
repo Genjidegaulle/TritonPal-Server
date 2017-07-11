@@ -263,7 +263,7 @@ function addEvent() {
   				days = "WE";
   				offset = 2;
           if (curr == 2) { // Fall
-            offset = 7;
+            //offset = 7;
           }
   				break;
   			case "Th":
