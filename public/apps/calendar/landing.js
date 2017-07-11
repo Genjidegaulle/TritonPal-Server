@@ -221,9 +221,6 @@ function addEvent() {
           if(curr < 2){
             recurrence = 15;
           }
-          else {
-		        recurrence = 30;
-          }
           else if ( curr == 2 ) {   // Fall classes start on Thursday
             recurrence = 31;
           }
