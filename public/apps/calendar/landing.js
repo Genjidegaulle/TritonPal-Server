@@ -191,46 +191,46 @@ function addEvent() {
         console.log(quarter);
         var curr;
 
-        if( quarter == "S1"){
+        if(quarter == "S1"){
           curr = 0;
         }
-        else if( quarter == "S2"){
+        else if(quarter == "S2"){
           curr = 1;
         }
-        else if( quarter == "FA"){
+        else if(quarter == "FA"){
           curr = 2;
         }
-        else if( quarter == "WI"){
+        else if(quarter == "WI"){
           curr = 3;
         }
-        else if( quarter == "SP"){
+        else if(quarter == "SP"){
           curr = 4;
         }
 
 
   		offset = 0;
   		recurrence = 10;
-        /* NOTE: Summer session is 5 weeks long */
+      /* NOTE: Summer session is 5 weeks long */
   		//Set offset and fix "MWF" formatting
   		switch (jsonderulo[i].sections[k].days) {
   			case "MWF":
   				days = "MO,WE,FR";
-                if( curr === 0 || curr == 1){
-                    recurrence = 15;
-                }
-                else {
-  				    recurrence = 30;
-                }
+          if(curr < 2){
+            recurrence = 15;
+          }
+          else {
+		        recurrence = 30;
+          }
   				break;
   			case "TuTh":
   				days = "TU,TH";
-                if( curr === 0 || curr == 1){
-                    recurrence = 10;
-                }
-                else {
-  				    recurrence = 20;
-                }
-                offset = 1;
+          if(curr < 2){
+            recurrence = 10;
+          }
+          else {
+		        recurrence = 20;
+          }
+          offset = 1;
   				break;
   			case "M":
   				days = "MO";
@@ -252,8 +252,8 @@ function addEvent() {
   				offset = 4;
   				break;
   			default:
-  				console.log("ERROR IN DATE");
-          break;
+  				console.log("ERROR IN DATE: " + jsonderulo[i].sections[k].days);
+          continue;
   				//TODO: Handle later?
   		}
 
@@ -285,7 +285,6 @@ function addEvent() {
 
       // Get correct quarter
       // 0 = SS1, 1 = SS2, 2 = Fall, 3 = Winter, 4 = Spring  
-
       console.log("The current month start is " + SMONTH[curr] + "/" + SDAY[curr] + " because its " + quarter + ' and curr is ' + curr);
       console.log("The next month is " + SMONTH[curr + 1]);
 
