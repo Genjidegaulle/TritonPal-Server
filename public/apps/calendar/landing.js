@@ -184,8 +184,6 @@ function addEvent() {
 	for (var i = 0; i < jsonderulo.length; i++){
     for (var k = 0; k < jsonderulo[i].sections.length; k++){
         
-        
-        
         var response = window.location.href;
         console.log(response);
         var quarterLen = "https://tritonpal.herokuapp.com/apps/calendar/landing.html?term=".length;
@@ -218,7 +216,7 @@ function addEvent() {
   		switch (jsonderulo[i].sections[k].days) {
   			case "MWF":
   				days = "MO,WE,FR";
-                if( curr === 0 || cur == 1){
+                if( curr === 0 || curr == 1){
                     recurrence = 15;
                 }
                 else {
@@ -227,7 +225,7 @@ function addEvent() {
   				break;
   			case "TuTh":
   				days = "TU,TH";
-                if( curr === 0 || cur == 1){
+                if( curr === 0 || curr == 1){
                     recurrence = 10;
                 }
                 else {
@@ -256,6 +254,7 @@ function addEvent() {
   				break;
   			default:
   				console.log("ERROR IN DATE");
+          break;
   				//TODO: Handle later?
   		}
 
@@ -286,12 +285,9 @@ function addEvent() {
   		//TODO: Array index subject to change
 
       // Get correct quarter
-      // 0 = SS1, 1 = SS2, 2 = Fall, 3 = Winter, 4 = Spring
+      // 0 = SS1, 1 = SS2, 2 = Fall, 3 = Winter, 4 = Spring  
 
-
-      
-
-      console.log("The current month start is " + SMONTH[curr] + "/" + SDAY[curr] + "because its " + quarter + 'and curr is ' + curr);
+      console.log("The current month start is " + SMONTH[curr] + "/" + SDAY[curr] + " because its " + quarter + ' and curr is ' + curr);
       console.log("The next month is " + SMONTH[curr + 1]);
 
   		startDate = SYEAR + "-" + SMONTH[curr] + "-" + (SDAY[curr] + offset);
