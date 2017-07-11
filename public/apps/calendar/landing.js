@@ -251,14 +251,23 @@ function addEvent() {
   				break;
   			case "M":
   				days = "MO";
+          if (curr == 2) { // Fall
+            offset = 7;
+          }
   				break;
   			case "Tu":
   				days = "TU";
   				offset = 1;
+          if (curr == 2) { // Fall
+            offset = 7;
+          }
   				break;
   			case "W":
   				days = "WE";
   				offset = 2;
+          if (curr == 2) { // Fall
+            offset = 7;
+          }
   				break;
   			case "Th":
   				days = "TH";
@@ -308,7 +317,7 @@ function addEvent() {
   		//TODO: Array index subject to change
 
       // Get correct quarter
-      // 0 = SS1, 1 = SS2, 2 = Fall, 3 = Winter, 4 = Spring  
+      // 0 = SS1, 1 = SS2, 2 = Fall, 3 = Winter, 4 = Spring
       console.log("The current month start is " + SMONTH[curr] + "/" + SDAY[curr] + " because its " + quarter + ' and curr is ' + curr);
       console.log("The next month is " + SMONTH[curr + 1]);
 
