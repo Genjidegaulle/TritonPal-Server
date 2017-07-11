@@ -263,14 +263,14 @@ function addEvent() {
   			case "Th":
   				days = "TH";
   				offset = 3;
-          if (curr == 2)  // Fall
+          if (curr == 2) { // Fall
             offset = 0;
           }
   				break;
   			case "F":
   				days = "FR";
   				offset = 4;
-          if (curr == 2)  // Fall
+          if (curr == 2)  {// Fall
             offset = 1;
           }
 
