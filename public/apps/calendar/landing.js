@@ -183,6 +183,9 @@ function addEvent() {
 	//Create event for each class
 	for (var i = 0; i < jsonderulo.length; i++){
     for (var k = 0; k < jsonderulo[i].sections.length; k++){
+
+
+
         var response = window.location.href;
         console.log(response);
         var quarterLen = "https://tritonpal.herokuapp.com/apps/calendar/landing.html?term=".length;
@@ -221,16 +224,30 @@ function addEvent() {
           else {
 		        recurrence = 30;
           }
+          else if ( curr == 2 ) {   // Fall classes start on Thursday
+            recurrence = 31;
+          }
+          else {
+            recurrence = 30;
+          }
+          // When fall begins on a Thursday
+          if (curr == 2) {
+            offset = 1;
+          }
   				break;
   			case "TuTh":
   				days = "TU,TH";
+          offset = 1;
           if(curr < 2){
             recurrence = 10;
+          }
+          else if ( curr == 2 ) {   // Fall classes start on Thursday
+              recurrence = 21;
+              offset = 0;
           }
           else {
 		        recurrence = 20;
           }
-          offset = 1;
   				break;
   			case "M":
   				days = "MO";
@@ -246,10 +263,17 @@ function addEvent() {
   			case "Th":
   				days = "TH";
   				offset = 3;
+          if (curr == 2)  // Fall
+            offset = 0;
+          }
   				break;
   			case "F":
   				days = "FR";
   				offset = 4;
+          if (curr == 2)  // Fall
+            offset = 1;
+          }
+
   				break;
   			default:
   				console.log("ERROR IN DATE: " + jsonderulo[i].sections[k].days);
