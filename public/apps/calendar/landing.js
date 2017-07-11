@@ -183,6 +183,9 @@ function addEvent() {
 	//Create event for each class
 	for (var i = 0; i < jsonderulo.length; i++){
     for (var k = 0; k < jsonderulo[i].sections.length; k++){
+
+
+
         var response = window.location.href;
         console.log(response);
         var quarterLen = "https://tritonpal.herokuapp.com/apps/calendar/landing.html?term=".length;
@@ -215,22 +218,44 @@ function addEvent() {
   		switch (jsonderulo[i].sections[k].days) {
   			case "MWF":
   				days = "MO,WE,FR";
+                // Summer Session classes are shorter
                 if( curr === 0 || curr == 1){
                     recurrence = 15;
                 }
-                else {
-  				    recurrence = 30;
+                else if ( curr == 2 ) {   // Fall classes start on Thursday
+                    recurrence = 31;
                 }
+                else {
+  				          recurrence = 30;
+                }
+
+                // When fall begins on a Thursday
+                if (curr == 2) {
+                    offset = 1;
+                }
+
+
   				break;
   			case "TuTh":
   				days = "TU,TH";
+                // Summer Session classes are shorter
                 if( curr === 0 || curr == 1){
                     recurrence = 10;
                 }
+                else if ( curr == 2 ) {   // Fall classes start on Thursday
+                    recurrence = 21;
+                }
                 else {
-  				    recurrence = 20;
+  				           recurrence = 20;
                 }
                 offset = 1;
+
+                // When fall begins on a Thursday
+                if (curr == 2){
+                    offset = 0;
+                }
+
+
   				break;
   			case "M":
   				days = "MO";
@@ -246,14 +271,20 @@ function addEvent() {
   			case "Th":
   				days = "TH";
   				offset = 3;
+          if (curr == 2)  // Fall
+            offset = 0;
+          }
   				break;
   			case "F":
   				days = "FR";
   				offset = 4;
+          if (curr == 2)  // Fall
+            offset = 1;
+          }
+
   				break;
   			default:
   				console.log("ERROR IN DATE");
-          break;
   				//TODO: Handle later?
   		}
 
@@ -284,9 +315,12 @@ function addEvent() {
   		//TODO: Array index subject to change
 
       // Get correct quarter
-      // 0 = SS1, 1 = SS2, 2 = Fall, 3 = Winter, 4 = Spring  
+      // 0 = SS1, 1 = SS2, 2 = Fall, 3 = Winter, 4 = Spring
 
-      console.log("The current month start is " + SMONTH[curr] + "/" + SDAY[curr] + " because its " + quarter + ' and curr is ' + curr);
+
+
+
+      console.log("The current month start is " + SMONTH[curr] + "/" + SDAY[curr] + "because its " + quarter + 'and curr is ' + curr);
       console.log("The next month is " + SMONTH[curr + 1]);
 
   		startDate = SYEAR + "-" + SMONTH[curr] + "-" + (SDAY[curr] + offset);
