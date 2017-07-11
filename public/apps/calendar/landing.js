@@ -7,6 +7,8 @@ var splitUrl = currUrl.split('?');
 var fullUrl = "https://tritonpal.herokuapp.com/socs?" + splitUrl[1];
 var scraped_courses = null;
 
+
+
 function httpGet(method, url) {
   var xhr = new XMLHttpRequest();
   if ("withCredentials" in xhr) {
@@ -47,8 +49,8 @@ var SCOPES = ["https://www.googleapis.com/auth/calendar"];
 
 //For startDate
 var SYEAR = new Date().getFullYear();
-var SDAY = [22, 9, 3, 3, 7];
-var SMONTH = [9, 1, 4, 7, 8];
+var SMONTH = [7, 8, 9, 1, 3];
+var SDAY = [3, 7, 28, 8, 30];
 
 /**
  * Check if current user has authorized this application.
@@ -181,19 +183,57 @@ function addEvent() {
 	//Create event for each class
 	for (var i = 0; i < jsonderulo.length; i++){
     for (var k = 0; k < jsonderulo[i].sections.length; k++){
+        
+        
+        
+        var response = window.location.href;
+        console.log(response);
+        var quarterLen = "https://tritonpal.herokuapp.com/apps/calendar/landing.html?term=".length;
+        var quarter = response.substring(quarterLen, quarterLen + 2);
+       
+        console.log(quarter);
+        var curr;
+        
+        if( quarter == "S1"){
+          curr = 0;
+        }
+        else if( quarter == "S2"){
+          curr = 1;
+        }
+        else if( quarter == "FA"){
+          curr = 2;
+        }
+        else if( quarter == "WI"){
+          curr = 3;
+        }
+        else if( quarter == "SP"){
+          curr = 4;
+        }
+        
+        
   		offset = 0;
   		recurrence = 10;
-
+        /* NOTE: Summer session is 5 weeks long */
   		//Set offset and fix "MWF" formatting
   		switch (jsonderulo[i].sections[k].days) {
   			case "MWF":
   				days = "MO,WE,FR";
-  				recurrence = 30;
+                if( curr === 0 || cur == 1){
+                    recurrence = 15;
+                }
+                else {
+  				    recurrence = 30;                    
+                }
   				break;
   			case "TuTh":
   				days = "TU,TH";
-  				recurrence = 20;
-  				offset = 1;
+                if( curr === 0 || cur == 1){
+                    recurrence = 10;
+                }
+                else {
+  				    recurrence = 20;                    
+                }  	
+                offset = 1;
   				break;
   			case "M":
   				days = "MO";
@@ -244,7 +284,17 @@ function addEvent() {
       }
 
   		//TODO: Array index subject to change
-  		startDate = SYEAR + "-" + SMONTH[2] + "-" + (SDAY[2] + offset);
+
+      // Get correct quarter
+      // 0 = SS1, 1 = SS2, 2 = Fall, 3 = Winter, 4 = Spring
+
+
+      
+
+      console.log("The current month start is " + SMONTH[curr] + "/" + SDAY[curr] + "because its " + quarter + 'and curr is ' + curr);
+      console.log("The next month is " + SMONTH[curr + 1]);
+
+  		startDate = SYEAR + "-" + SMONTH[curr] + "-" + (SDAY[curr] + offset);
   		console.log("THE START DATE FOR " + jsonderulo[i].name + " IS " + jsonderulo[i].sections[k].days + " w OFFSET " + offset);
 
   		//Get Start and end time
