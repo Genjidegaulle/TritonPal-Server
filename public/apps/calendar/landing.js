@@ -183,17 +183,17 @@ function addEvent() {
 	//Create event for each class
 	for (var i = 0; i < jsonderulo.length; i++){
     for (var k = 0; k < jsonderulo[i].sections.length; k++){
-        
-        
-        
+
+
+
         var response = window.location.href;
         console.log(response);
         var quarterLen = "https://tritonpal.herokuapp.com/apps/calendar/landing.html?term=".length;
         var quarter = response.substring(quarterLen, quarterLen + 2);
-       
+
         console.log(quarter);
         var curr;
-        
+
         if( quarter == "S1"){
           curr = 0;
         }
@@ -209,8 +209,8 @@ function addEvent() {
         else if( quarter == "SP"){
           curr = 4;
         }
-        
-        
+
+
   		offset = 0;
   		recurrence = 10;
         /* NOTE: Summer session is 5 weeks long */
@@ -218,21 +218,21 @@ function addEvent() {
   		switch (jsonderulo[i].sections[k].days) {
   			case "MWF":
   				days = "MO,WE,FR";
-                if( curr === 0 || cur == 1){
+                if( curr === 0 || curr == 1){
                     recurrence = 15;
                 }
                 else {
-  				    recurrence = 30;                    
+  				    recurrence = 30;
                 }
   				break;
   			case "TuTh":
   				days = "TU,TH";
-                if( curr === 0 || cur == 1){
+                if( curr === 0 || curr == 1){
                     recurrence = 10;
                 }
                 else {
-  				    recurrence = 20;                    
-                }  	
+  				    recurrence = 20;
+                }
                 offset = 1;
   				break;
   			case "M":
@@ -289,7 +289,7 @@ function addEvent() {
       // 0 = SS1, 1 = SS2, 2 = Fall, 3 = Winter, 4 = Spring
 
 
-      
+
 
       console.log("The current month start is " + SMONTH[curr] + "/" + SDAY[curr] + "because its " + quarter + 'and curr is ' + curr);
       console.log("The next month is " + SMONTH[curr + 1]);
