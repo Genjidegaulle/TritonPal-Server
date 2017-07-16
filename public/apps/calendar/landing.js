@@ -183,9 +183,6 @@ function addEvent() {
 	//Create event for each class
 	for (var i = 0; i < jsonderulo.length; i++){
     for (var k = 0; k < jsonderulo[i].sections.length; k++){
-
-
-
         var response = window.location.href;
         console.log(response);
         var quarterLen = "https://tritonpal.herokuapp.com/apps/calendar/landing.html?term=".length;
@@ -212,7 +209,7 @@ function addEvent() {
 
 
   		offset = 0;
-  		recurrence = 10;
+  		recurrence = 10; // recurrence means # of times classes recur
       /* NOTE: Summer session is 5 weeks long */
   		//Set offset and fix "MWF" formatting
   		switch (jsonderulo[i].sections[k].days) {
@@ -221,18 +218,12 @@ function addEvent() {
           if(curr < 2){
             recurrence = 15;
           }
-          else {
-		        recurrence = 30;
-          }
           else if ( curr == 2 ) {   // Fall classes start on Thursday
             recurrence = 31;
+            offset = 5;
           }
           else {
             recurrence = 30;
-          }
-          // When fall begins on a Thursday
-          if (curr == 2) {
-            offset = 1;
           }
   				break;
   			case "TuTh":
@@ -242,8 +233,8 @@ function addEvent() {
             recurrence = 10;
           }
           else if ( curr == 2 ) {   // Fall classes start on Thursday
-              recurrence = 21;
-              offset = 0;
+            recurrence = 21;
+            offset = 4;
           }
           else {
 		        recurrence = 20;
