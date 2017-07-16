@@ -220,7 +220,6 @@ function addEvent() {
           }
           else if ( curr == 2 ) {   // Fall classes start on Thursday
             recurrence = 31;
-            offset = 5;
           }
           else {
             recurrence = 30;
@@ -234,7 +233,7 @@ function addEvent() {
           }
           else if ( curr == 2 ) {   // Fall classes start on Thursday
             recurrence = 21;
-            offset = 4;
+            offset = 0;
           }
           else {
 		        recurrence = 20;
