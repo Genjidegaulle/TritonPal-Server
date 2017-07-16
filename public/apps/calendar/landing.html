@@ -23,6 +23,12 @@
   <!-- Icons -->
   <script src="https://use.fontawesome.com/9701aecd39.js"></script>
 
+	<script>
+		function goDown() {
+			document.getElementById("test").scrollIntoView();
+
+		}
+	</script>
 </head>
 <body>
   <div class="jumbotron">
@@ -37,6 +43,7 @@
           <div id='done'>
             <p> <i class="fa fa-check" aria-hidden="true"></i> </p>
           </div>
+
     			<br>
 
     			<div id='authorize-div'>
@@ -45,6 +52,11 @@
     					Authorize
     				</button>
     			</div>
+
+					<!-- Button to scroll down -->
+					<div id="downButton">
+						<i class="fa fa-sort-desc" aria-hidden="true"  onclick="goDown()"></i>
+					</div>
 
 
   		  </div>
