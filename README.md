@@ -5,6 +5,15 @@ Server side of the TritonPal Chrome Extension
 
 TritonPal is intended for UCSD students to transfer their scheduled classes from WebReg to a Google Calendar of their choice!
 
+## Running Locally
+
+```shell
+git clone https://github.com/Genjidegaulle/TritonPal-Server.git
+cd TritonPal-Server
+npm install 
+npm start 
+
+```
 
 Todo: 
 <ol>

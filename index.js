@@ -1,19 +1,13 @@
 "use strict";
 var express = require('express');
-var ucsd_courses = require('./modules/ucsd_courses.js');
-var redis = require('./modules/redis.js');
 var mustacheExpress = require('mustache-express');
 var socsjs = require('socsjs');
 
-var calendarApp = require('./apps/calendar.js');
-var prettyApp = require('./apps/pretty.js');
-var highlightApp = require('./apps/highlight.js');
-var notif = require('./apps/notif.js');
 
 
 var app = express();
 
-app.set('port', (process.env.PORT || 80));
+app.set('port', process.env.PORT || 3333);
 
 app.use(express.static(__dirname + '/public'));
 
@@ -25,31 +19,6 @@ app.set('views', __dirname + '/views');
 app.use(express.static('public'));
 
 
-
-//Front Page
-app.get('/', function(request, response) {
-	response.send('aayyy');	
-});
-
-
-//#########   APPS    ###############
-
-//Calendar App
-//app.get('/apps/calendar/landing.html', calendarApp.landing);
-
-//Pretty App
-app.get('/apps/pretty/test.css', prettyApp.landing);
-
-//app.get('/apps/highlight', highlightApp.landing);
-
-//Course highlight app
-app.get('/apps/courses', highlightApp.landing);
-
-//Four Year Plan app
-
-//app.get('/apps/fyp', fypApp.landing);
-
-app.get('/notif', notif.handle);
 
 //DAVID PUT YOUR STUFF HERE 
 app.get('/socs', function(request, response){
